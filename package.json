@@ -1,0 +1,39 @@
+{
+  "name": "react-webpack-babel",
+  "version": "0.0.1",
+  "description": "React Webpack Babel Starter Kit",
+  "main": "''",
+  "scripts": {
+    "build": "webpack --progress --profile --colors",
+    "dev": "webpack-dev-server --progress --profile --colors --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alicoding/react-webpack-babel"
+  },
+  "keywords": [
+    "React",
+    "Webpack",
+    "Babel",
+    "Starter",
+    "template"
+  ],
+  "author": "Ali Al Dallal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alicoding/react-webpack-babel/issues"
+  },
+  "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
+  "dependencies": {
+    "babel-core": "^5.5.8",
+    "babel-loader": "^5.1.4",
+    "babel-runtime": "^5.5.8",
+    "jsx-loader": "^0.13.2",
+    "node-libs-browser": "^0.5.2",
+    "react": "^0.13.3",
+    "webpack": "^1.9.11"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^1.9.0"
+  }
+}
