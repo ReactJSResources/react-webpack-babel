@@ -1,6 +1,6 @@
 {
   "name": "react-webpack-babel",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React Webpack Babel Starter Kit",
   "main": "''",
   "scripts": {
@@ -33,6 +33,5 @@
     "react-hot-loader": "^1.2.7",
     "webpack-dev-server": "^1.9.0",
     "webpack": "^1.9.11"
-
   }
 }
