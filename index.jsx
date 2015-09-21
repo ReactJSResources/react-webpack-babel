@@ -1,9 +1,10 @@
+require("./node_modules/bootstrap/dist/css/bootstrap.min.css")
 import React from 'react';
 
 export class App extends React.Component {
 	render() {
 		return (
-			<div>My simple React Webpack Babel App</div>
+        <div>Simaple React + Babel + Bootstrap + Webpack </div>
 		);
 	}
 }
