@@ -65,7 +65,6 @@ module.exports = {
         inline: true
     },
     plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ]
+      new webpack.NoErrorsPlugin()
+    ]
 };
