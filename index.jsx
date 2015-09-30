@@ -4,7 +4,7 @@ import React from 'react';
 export class App extends React.Component {
 	render() {
 		return (
-        <div>Simaple React + Babel + Bootstrap + Webpack </div>
+        <div>Simple React + Babel + Bootstrap + Webpack </div>
 		);
 	}
 }
