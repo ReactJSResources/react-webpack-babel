@@ -10,6 +10,12 @@ Just a simple [index.jsx](./index.jsx), [webpack.config.js](./webpack.config.js)
 
 ### To run
 
+Install webpack and the development server:
+
+```
+> $ npm i webpack-dev-server webpack -g
+```
+
 You can simply run webpack build using this command: 
 
 ```
