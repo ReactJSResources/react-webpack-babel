@@ -1,5 +1,6 @@
 require("./node_modules/bootstrap/dist/css/bootstrap.min.css")
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 export class App extends React.Component {
 	render() {
@@ -9,4 +10,4 @@ export class App extends React.Component {
 	}
 }
 
-React.render(<App/>, document.querySelector("#myApp"));
+ReactDOM.render(<App/>, document.querySelector("#myApp"));
