@@ -26,7 +26,7 @@
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
     "bootstrap": "3.3.5",
-    "node-libs-browser": "0.5.3",
+    "node-libs-browser": "1.0.0",
     "react": "0.14.6",
     "react-dom": "0.14.6"
   },
