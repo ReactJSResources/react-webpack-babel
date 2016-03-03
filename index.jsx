@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 export class App extends React.Component {
 	render() {
 		return (
-      <div>Simple React + Babel + Bootstrap + Webpack </div>
+      <div>Simple React + Babel + Bootstrap + Webpack</div>
 		);
 	}
 }
