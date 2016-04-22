@@ -4,7 +4,7 @@
   "description": "React Webpack Babel Starter Kit",
   "main": "''",
   "scripts": {
-    "build": "webpack --progress --profile --colors",
+    "build": "NODE_ENV=production webpack -p --config webpack.production.config.js --progress --profile --colors",
     "dev": "webpack-dev-server --progress --profile --colors --hot"
   },
   "repository": {
