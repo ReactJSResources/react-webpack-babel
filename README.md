@@ -10,6 +10,19 @@ Just a simple [index.jsx](./index.jsx), [webpack.config.js](./webpack.config.js)
 
 ### To run
 
+* You'll need to have [git](https://git-scm.com/) and [node](https://nodejs.org/en/) installed in your system.
+* Fork and clone the project:
+
+```
+> $ git clone https://github.com/alicoding/react-webpack-babel.git
+```
+
+Then install the dependencies:
+
+```
+> $ npm install
+```
+
 Install webpack and the development server:
 
 ```
