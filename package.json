@@ -30,7 +30,7 @@
     "json5-loader": "^0.6.0",
     "jsx-loader": "^0.13.2",
     "node-libs-browser": "1.0.0",
-    "react": "15.0.1",
+    "react": "15.2.0",
     "react-dom": "15.0.1"
   },
   "devDependencies": {
