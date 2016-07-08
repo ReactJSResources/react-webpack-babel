@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var loaders = require('./webpack.loaders');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	entry: [
@@ -26,6 +27,9 @@ module.exports = {
 			inline: true
 		},
 	plugins: [
-		new webpack.NoErrorsPlugin()
+		new webpack.NoErrorsPlugin(),
+		new CopyWebpackPlugin([
+			{from: './index.html'}
+		]),
 	]
 };
