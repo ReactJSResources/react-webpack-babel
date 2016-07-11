@@ -31,7 +31,7 @@
     "jsx-loader": "^0.13.2",
     "node-libs-browser": "1.0.0",
     "react": "15.0.1",
-    "react-dom": "15.0.1"
+    "react-dom": "15.2.0"
   },
   "devDependencies": {
     "babel-core": "6.7.7",
