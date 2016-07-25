@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
-    "bootstrap": "3.3.5",
+    "bootstrap": "3.3.7",
     "json-loader": "^0.5.4",
     "json5-loader": "^0.6.0",
     "jsx-loader": "^0.13.2",
