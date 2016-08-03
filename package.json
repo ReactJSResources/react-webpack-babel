@@ -30,7 +30,7 @@
     "json5-loader": "^0.6.0",
     "jsx-loader": "^0.13.2",
     "node-libs-browser": "1.0.0",
-    "react": "15.2.1",
+    "react": "15.3.0",
     "react-dom": "15.2.1",
     "babel-core": "6.10.4",
     "babel-loader": "6.2.4",
