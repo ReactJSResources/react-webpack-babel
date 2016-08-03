@@ -31,7 +31,7 @@
     "jsx-loader": "^0.13.2",
     "node-libs-browser": "1.0.0",
     "react": "15.3.0",
-    "react-dom": "15.2.1",
+    "react-dom": "15.3.0",
     "babel-core": "6.10.4",
     "babel-loader": "6.2.4",
     "babel-preset-es2015": "6.9.0",
