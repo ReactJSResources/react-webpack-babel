@@ -1,13 +1,16 @@
 # react-webpack-babel
 Simple React Webpack Babel Starter Kit
 
-This is a simple [React](https://facebook.github.io/react/), [Webpack](http://webpack.github.io/) and [Babel](https://babeljs.io/) application with nothing else in it.
+Tired of complicated starters with 200MB of dependencies which are hard to understand and modify?
+
+Try this is a simple [React](https://facebook.github.io/react/), [Webpack](http://webpack.github.io/) and [Babel](https://babeljs.io/) application with nothing else in it.
 
 ### What's in it?
 
-Simple src/index.jsx and src/index.css with webpack configuration for development (with hot reloading) and production (with minification).
-CSS module loading is also configured, so you can include your css via ```import styles from './path/to.css';```.
-Both js(x) and css are hot loaded during development.
+* Simple src/index.jsx and src/index.css (local module css).
+* Webpack configuration for development (with hot reloading) and production (with minification).
+* CSS module loading, so you can include your css by ```import styles from './path/to.css';```.
+* Both js(x) and css hot loaded during development.
 
 ### To run
 
@@ -32,7 +35,7 @@ Both js(x) and css are hot loaded during development.
 
 Open the web browser to `http://localhost:8888/`
 
-* Build production package: 
+### To build production package
 
 ```
 > $ npm run build
@@ -78,8 +81,8 @@ To do the actual linting, run:
 ```
 
 ### Notes on importing css styles
-* css styles having /src/ in their absolute path are considered part of the application and exported as local css modules.
-* css styles having /node_modules|global)/ in their absolute path are considered global styles used by many components.
+* styles having /src/ in their absolute path are considered part of the application and exported as local css modules.
+* styles having /node_modules|global/ in their absolute path are considered global styles used by many components and are included in the css bundle directly.
 
 ### Contribute
 Please contribute to the project if you think this can be done better in anyway even for this README :)
