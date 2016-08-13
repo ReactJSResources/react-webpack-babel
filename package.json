@@ -1,53 +1,39 @@
 {
   "name": "react-webpack-babel",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React Webpack Babel Starter Kit",
   "main": "''",
   "scripts": {
-    "build": "webpack -p --config webpack.production.config.js --progress --profile --colors",
-    "dev": "webpack-dev-server --progress --profile --colors"
+    "build": "webpack --config webpack.production.config.js --progress --profile --colors",
+    "start": "webpack-dev-server --progress --profile --colors",
+	"lint": "eslint src/index.jsx"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/alicoding/react-webpack-babel"
   },
-  "keywords": [
-    "React",
-    "Webpack",
-    "Babel",
-    "Starter",
-    "template"
-  ],
-  "author": "Ali Al Dallal",
+  "author": "Ali Al Dallal & K3A",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/alicoding/react-webpack-babel/issues"
-  },
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
     "bootstrap": "3.3.7",
-    "json-loader": "^0.5.4",
-    "json5-loader": "^0.6.0",
-    "jsx-loader": "^0.13.2",
-    "node-libs-browser": "1.0.0",
     "react": "15.3.0",
-    "react-dom": "15.3.0",
+    "react-dom": "15.3.0"
+  },
+  "devDependencies": {
     "babel-core": "6.13.2",
     "babel-loader": "6.2.4",
     "babel-preset-es2015": "6.13.2",
     "babel-preset-react": "6.11.1",
-    "copy-webpack-plugin": "^3.0.1",
     "css-loader": "0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "0.9.0",
+    "html-webpack-plugin": "^2.22.0",
     "react-hot-loader": "1.3.0",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
-    "webpack": "1.13.1"
-  },
-  "devDependencies": {
-    "babel-eslint": "^6.1.2",
-    "eslint": "^3.2.0",
-    "eslint-plugin-react": "^6.0.0",
+    "webpack": "1.13.1",
+    "webpack-cleanup-plugin": "^0.2.0",
     "webpack-dev-server": "1.14.1"
   }
 }
