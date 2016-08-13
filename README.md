@@ -53,15 +53,13 @@ server {
 	gzip_types text/plain text/css text/xml application/javascript image/svg+xml;
 
 	location ~ \.html?$ {
-		expires 7d;
-		add_header K3A html;
+		expires 1d;
 	}
 
 	location ~ \.(svg|ttf|js|css|svgz|eot|otf|woff|jpg|jpeg|gif|png|ico)$ {
 		access_log off;
 		log_not_found off;
 		expires max;
-		add_header K3A static;
 	}
 }
 ```
