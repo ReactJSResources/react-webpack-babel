@@ -5,10 +5,6 @@ module.exports = [
 		loaders: ['react-hot', 'babel'],
 	},
 	{
-		test: /\.css$/,
-		loader: 'style-loader!css-loader'
-	},
-	{
 		test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
 		loader: "file"
 	},
