@@ -9,7 +9,7 @@ const PORT = process.env.PORT || "8888";
 
 // global css
 loaders.push({
-	test: /(node_modules|global)\/.*\.css$/,
+	test: /[\/\\](node_modules|global)[\/\\].*\.css$/,
 	loaders: [
 		'style?sourceMap',
 		'css'
@@ -17,7 +17,7 @@ loaders.push({
 });
 // local css modules
 loaders.push({
-	test: /\/src\/.*\.css$/,
+	test: /[\/\\]src[\/\\].*\.css$/,
 	loaders: [
 		'style?sourceMap',
 		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
