@@ -6,13 +6,13 @@
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "webpack-dev-server --progress --profile --colors",
-	"lint": "eslint src/index.jsx"
+	"lint": "eslint --ext js --ext jsx src || exit 0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/alicoding/react-webpack-babel"
   },
-  "author": "Ali Al Dallal & K3A",
+  "author": "Ali Al Dallal",
   "license": "MIT",
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
