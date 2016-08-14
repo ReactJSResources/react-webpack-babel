@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/alicoding/react-webpack-babel"
   },
-  "author": "Ali Al Dallal & K3A",
+  "author": "Ali Al Dallal",
   "license": "MIT",
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
