@@ -1,17 +1,4 @@
 module.exports = [
-	// {
-	// 	test: /\.jsx?$/,
-	// 	exclude: /(node_modules|bower_components)/,
- //    loaders: [
- //      {
- //        loader: 'babel',
- //        query: {
- //          presets: ['es2015', 'es2017', 'react'],
- //          plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties'],
- //        },
- //      },
- //    ],
- //  },
 	{
 		test: /\.jsx?$/,
 		exclude: /(node_modules|bower_components)/,
@@ -22,7 +9,7 @@ module.exports = [
 		exclude: /(node_modules|bower_components)/,
 		loader: 'babel',
 		query: {
-		  presets: ['es2015', 'es2017', 'react'],
+		  presets: ['es2015', 'react'],
 		  plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties'],
 		}
 	},
