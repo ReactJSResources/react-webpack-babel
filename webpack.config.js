@@ -17,10 +17,11 @@ loaders.push({
 });
 // local css modules
 loaders.push({
-	test: /[\/\\]src[\/\\].*\.css$/,
+	test: /[\/\\]src[\/\\].*\.scss/,
 	loaders: [
 		'style?sourceMap',
-		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+		'sass'
 	]
 });
 
