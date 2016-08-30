@@ -7,6 +7,12 @@ var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 
 // local css modules
 loaders.push({
+	test: /[\/\\]src[\/\\].*\.css/,
+	loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
+});
+
+// local scss modules
+loaders.push({
 	test: /[\/\\]src[\/\\].*\.scss/,
 	loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'sass')
 });
