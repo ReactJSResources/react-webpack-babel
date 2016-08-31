@@ -69,6 +69,6 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			template: './src/template.html'
-		})
+		}),
 	]
 };
