@@ -20,7 +20,7 @@
     "node-sass": "^3.8.0",
     "react": "15.3.0",
     "react-dom": "15.3.0",
-    "sass-loader": "^4.0.0"
+    "sass-loader": "^4.0.1"
   },
   "devDependencies": {
     "babel-core": "6.14.0",
