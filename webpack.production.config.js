@@ -1,3 +1,4 @@
+
 var webpack = require('webpack');
 var path = require('path');
 var loaders = require('./webpack.loaders');
@@ -58,6 +59,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/template.html',
 			title: 'Webpack App'
-		})
+		}),
+		new webpack.optimize.DedupePlugin()
 	]
 };
