@@ -1,0 +1,15 @@
+{
+    "rules": {
+        ".read": "auth != null",
+        ".write": "auth != null",
+        "$grid":{
+            ".validate":"$grid.matches(/^(grid0)$/) && newData.hasChildren()",
+            "$row":{
+                ".validate":"$row.matches(/^(r)[0-5]$/) && newData.hasChildren()",
+                "$col":{
+                    ".validate":"$col.matches(/^(c)[0-5]$/) && newData.val().matches(/^#[0-9a-fA-F]{6}$/)"
+                }
+            }
+        }
+    }
+}

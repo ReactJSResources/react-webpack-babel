@@ -27,7 +27,7 @@ loaders.push({
 
 module.exports = {
 	entry: [
-		'./src/index.jsx'
+		'./src/components/index.jsx'
 	],
 	output: {
 		path: path.join(__dirname, 'public'),
