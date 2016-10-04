@@ -1,6 +1,17 @@
 .cell {
     border: solid black 1px;
-	display: inline-block;
-	height: 50px;
-	width: 50px;
+    display: inline-block;
+    height: 50px;
+    margin: 0 3px;
+    width: 50px;
+}
+
+.matrix {
+    margin: 20px auto;
+}
+
+.matrixRow {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
 }

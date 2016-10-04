@@ -1,13 +1,13 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from '../index.scss';
 import React from 'react';
-import Cell from './cell.jsx';
+import Matrix from './matrix.jsx';
+import styles from '../index.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class App extends React.Component {
   render() {
     return (
-      <div>
-        <Cell/>
+      <div className="container">
+        <Matrix/>
       </div>
     )
   }
