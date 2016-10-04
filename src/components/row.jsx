@@ -3,10 +3,10 @@ import Cell from './cell.jsx';
 import styles from '.././index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default class Row extends React.Component {
+export default class Column extends React.Component {
   render(){
     return(
-      <div className={styles.matrixRow}>
+      <div className={styles.matrixColumn}>
         <Cell/>
         <Cell/>
         <Cell/>
