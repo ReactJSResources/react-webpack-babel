@@ -19,7 +19,7 @@ export default class Cell extends React.Component {
   }
 
   render() {
-    const color_style = {color: this.state.color};
+    const color_style = {backgroundColor: this.state.color};
     return (
       <div>
         <div onClick={this.handleClick}
