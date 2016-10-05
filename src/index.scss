@@ -6,6 +6,7 @@
     width: 50px;
 }
 
+/* Matrix Styles */
 .matrix {
     margin: 20px auto;
 }
@@ -14,4 +15,16 @@
     display: inline-block;
     margin: 0;
     padding: 0;
+}
+
+/* Palette Styles */
+#palette {
+    display: inline;
+}
+.paint {
+    border-radius: 50%;
+    display: inline-block;
+    height: 50px;
+    margin: 3px;
+    width: 50px;
 }
