@@ -79,9 +79,11 @@ function initDimensions(callback) {
  */
 function main(updateFrequency) {
     initFirebase();
-    initDimensions(function() {
-        setInterval(changeColor, updateFrequency * 1000);
-    });
+    setTimeout( function () {
+            initDimensions(function() {
+            setInterval(changeColor, updateFrequency * 1000);
+        });
+    }, 1000);
 }
 
 main(FREQUENCY_S);
