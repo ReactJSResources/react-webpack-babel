@@ -8,7 +8,7 @@ export default class Column extends React.Component {
   render(){
     var matrix = []
     for(var i=0;i<matrixID[1];i++){
-      matrix.push(<Cell/>)
+      matrix.push(<Cell id={"R"+i + "C" + this.props.column}/>)
     }
     return(
       <div className={styles.matrixColumn}>{matrix}</div>
