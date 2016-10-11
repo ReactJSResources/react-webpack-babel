@@ -17,6 +17,7 @@
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.3",
+    "firebase": "^3.4.1",
     "node-sass": "^3.9.2",
     "react": "15.3.0",
     "react-dom": "15.3.0",

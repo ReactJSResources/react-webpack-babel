@@ -1,4 +1,5 @@
 import React from 'react';
+import MatrixID from './data.jsx';
 import Matrix from './matrix.jsx';
 import Palette from './palette.jsx';
 import styles from '../index.scss';
