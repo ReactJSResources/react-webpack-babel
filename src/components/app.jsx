@@ -2,7 +2,7 @@ import React from 'react';
 import MatrixID from './data.jsx';
 import Matrix from './matrix.jsx';
 import Palette from './palette.jsx';
-import styles from '../index.scss';
+import styles from '../_base.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class App extends React.Component {

@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from '.././index.scss';
+import styles from '.././main.scss';
+import colors from '.././_colors.scss';
 
 export default class Palette extends React.Component {
   constructor(){
@@ -16,25 +17,25 @@ export default class Palette extends React.Component {
   }
 
   render(){
-    const paint_color = { backgroundColor: 'red' };     // PLACEHOLDER: will be passed in from variable stylsheet?
+    const colorStyleSheet = document.styleSheets[2].cssRules;
 
-    // make this a loop after colors are defined
-    return (
+    let paintColor;
+    let paintPots = [];
+
+    for( var i = 0; i < colorStyleSheet.length; i++ ){
+      paintColor = { backgroundColor: colorStyleSheet[i].style['background-color'] }
+
+      paintPots.push( <div key={i}
+                           onClick={ this.handleClick }
+                           style={ paintColor }
+                           className={ styles.paintPot }>
+                      </div>
+      )
+    }
+
+    return(
       <div id="palette">
-        <div className="row">
-          <div onClick={ this.handleClick }
-               style={ paint_color }
-               className={ styles.paint }>
-          </div>
-          <div onClick={ this.handleClick }
-               style={ paint_color }
-               className={ styles.paint }>
-          </div>
-          <div onClick={ this.handleClick }
-               style={ paint_color }
-               className={ styles.paint }>
-          </div>
-        </div>
+        <div className="row"> {paintPots} </div>
       </div>
     )
   }

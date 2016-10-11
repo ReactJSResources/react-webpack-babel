@@ -1,7 +1,6 @@
-import styles from '.././index.scss';
 import React from 'react';
-import colors from '.././_variables.scss'
 import * as firebase from 'firebase';
+import styles from '.././main.scss';
 
 export default class Cell extends React.Component {
   constructor() {
