@@ -1,20 +1,32 @@
 import styles from '.././index.scss';
 import React from 'react';
+import * as firebase from 'firebase';
 
 export default class Cell extends React.Component {
   constructor() {
       super();
       this.state = {
-          color: 'white'
+          color: '#FFFFFF'
       }
       this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+      this.cellRef = firebase.database().ref(this.props.gridID
+                                             + '/r' + this.props.row
+                                             + '/c' + this.props.col);
+      this.cellRef.on('value', snap => {
+          if (snap.val() !== null) {
+              this.setState({color: snap.val()});
+          }
+      });
+  }
+
   handleClick() {
-    if (this.state.color === 'white') {
-        this.setState({color: 'black'});
+    if (this.state.color === '#FFFFFF') {
+        this.cellRef.set('#000000');
     } else {
-        this.setState({color: 'white'});
+        this.cellRef.set('#FFFFFF');
     }
   }
 
@@ -23,11 +35,17 @@ export default class Cell extends React.Component {
     return (
       <div>
         <div onClick={this.handleClick}
-             id={this.props.id}
+             id={'R' + this.props.row + 'C' + this.props.col}
              style={color_style}
              className={styles.cell}>
         </div>
       </div>
     )
   }
+}
+
+Cell.propTypes = {
+    row: React.PropTypes.number,
+    col: React.PropTypes.number,
+    gridID: React.PropTypes.string
 }
