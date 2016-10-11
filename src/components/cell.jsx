@@ -23,6 +23,7 @@ export default class Cell extends React.Component {
     return (
       <div>
         <div onClick={this.handleClick}
+             id={this.props.id}
              style={color_style}
              className={styles.cell}>
         </div>
