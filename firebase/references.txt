@@ -1,2 +1,4 @@
 References:
     -Firebase documentation
+    -http://stackoverflow.com/questions/13535172/list-of-all-unicodes-open-close-brackets
+    -http://regexr.com
