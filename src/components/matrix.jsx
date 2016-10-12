@@ -1,6 +1,6 @@
 import React from 'react';
 import Cell from './cell.jsx';
-import styles from '.././index.scss';
+import styles from '.././main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {matrixID} from './data.jsx';
 
@@ -11,10 +11,12 @@ export default class Matrix extends React.Component {
       let column = []
       for(var j = 0;j < matrixID[1];j++){
         column.push(<Cell row={j} col={i} key={'r' + j + 'c' + i}
-                     gridID={'grid0/'}/>)
+                     gridID={'grid0/'} color={this.props.color} />)
       }
       matrix.push(<div key={i} className={styles.matrixColumn}>{column}</div>)
     }
-    return(<div className={styles.matrix}>{matrix}</div>)
+    return(
+      <div className={styles.matrix}>{matrix}</div>
+    )
   }
 }
