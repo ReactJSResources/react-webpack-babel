@@ -45,12 +45,12 @@ function changeColor() {
 
 	// change cell color
 	cellRef.transaction(function(currentData) {
-		if (currentData === "#000000") {
+		if (currentData === "rgb(0, 0, 0)") {
 			return "#FFFFFF";
 		} else {
 			// Since we assume non-initialized cells are already white we
             // do not have to check for a null case.
-			return "#000000";
+			return "rgb(0, 0, 0)";
 		}
 	});
 }
