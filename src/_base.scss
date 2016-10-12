@@ -1,9 +1,13 @@
 .cell {
-    border: solid black 1px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
     display: inline-block;
     height: 50px;
     margin: 0 3px;
     width: 50px;
+}
+
+.active {
+    border: 10px double rgba(0, 0, 0, 0.5);
 }
 
 /* Matrix Styles */
@@ -18,13 +22,16 @@
 }
 
 /* Palette Styles */
-#palette {
-    display: inline;
+.palette {
+    margin: 10vh;
+    text-align: center;
 }
 .paintPot {
+    border: 3px solid rgba(0, 0, 0, 0.3);
     border-radius: 50%;
-    display: inline-block;
+    cursor: pointer;
+    display: block;
     height: 50px;
-    margin: 3px;
+    margin: 3vh auto;
     width: 50px;
 }

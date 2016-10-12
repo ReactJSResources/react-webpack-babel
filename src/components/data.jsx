@@ -1,3 +1,3 @@
-var numRows = 16;
-var numCols = 16;
+var numRows = 8;
+var numCols = 8;
 export var matrixID = [numRows,numCols];

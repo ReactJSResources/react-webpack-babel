@@ -1,12 +1,13 @@
 import React from 'react';
 import * as firebase from 'firebase';
+import Palette from './palette.jsx';
 import styles from '.././main.scss';
 
 export default class Cell extends React.Component {
   constructor() {
       super();
       this.state = {
-          color: '#FFFFFF'
+          color: 'rgb(255, 255, 255)'
       }
       this.handleClick = this.handleClick.bind(this);
   }
@@ -23,11 +24,7 @@ export default class Cell extends React.Component {
   }
 
   handleClick() {
-    if (this.state.color === '#FFFFFF') {
-        this.cellRef.set('#000000');
-    } else {
-        this.cellRef.set('#FFFFFF');
-    }
+    this.cellRef.set( this.props.color.selectedColor );
   }
 
   render() {
