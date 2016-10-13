@@ -11,9 +11,11 @@ function promptForLogin(uidCallback) {
         var accountCheck = firebase.database().ref('users/' + uid);
         accountCheck.once("value", snapshot => {
             if (snapshot.val() === null) {
-                accountCheck.set({admin: 'false',
-                                             email: user_email,
-                                             grids: {}});
+                accountCheck.set({
+                    admin: 'false',
+                    email: user_email,
+                    grids: {}
+                });
             }
         });
 
