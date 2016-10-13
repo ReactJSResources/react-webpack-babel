@@ -12,9 +12,5 @@ const config = {
 };
 firebase.initializeApp(config);
 
-// For now we do anonymous loggin.
-firebase.auth().signInAnonymously().catch(function(error) {
-    console.log('Could not auth', error);
-});
 
 render(<App/>, document.querySelector("#app"));

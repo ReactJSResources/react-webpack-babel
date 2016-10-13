@@ -13,7 +13,7 @@ export default class Cell extends React.Component {
   }
 
   componentDidMount() {
-      this.cellRef = firebase.database().ref(this.props.gridID
+      this.cellRef = firebase.database().ref('grids/' + this.props.gridID
                                              + '/r' + this.props.row
                                              + '/c' + this.props.col);
       this.cellRef.on('value', snap => {
@@ -23,8 +23,12 @@ export default class Cell extends React.Component {
       });
   }
 
+  componentWillUnmount() {
+      this.cellRef.off('value');
+  }
+
   handleClick() {
-    this.cellRef.set( this.props.color.selectedColor );
+    this.cellRef.set( this.props.color );
   }
 
   render() {
@@ -44,5 +48,7 @@ export default class Cell extends React.Component {
 Cell.propTypes = {
     row: React.PropTypes.number,
     col: React.PropTypes.number,
-    gridID: React.PropTypes.string
+    gridID: React.PropTypes.string,
+    color: React.PropTypes.string
+
 }
