@@ -12,7 +12,7 @@ function promptForLogin(uidCallback) {
         accountCheck.once("value", snapshot => {
             console.log(snapshot);
             if (snapshot.val() === null) {
-                accountCheck.child(uid).set({admin: 'false',
+                accountCheck.set({admin: 'false',
                                              email: user_email,
                                              grids: {}});
             }
