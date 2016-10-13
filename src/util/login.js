@@ -10,7 +10,6 @@ function promptForLogin(uidCallback) {
         // check if account already exists, if not add an entry.
         var accountCheck = firebase.database().ref('users/' + uid);
         accountCheck.once("value", snapshot => {
-            console.log(snapshot);
             if (snapshot.val() === null) {
                 accountCheck.set({admin: 'false',
                                              email: user_email,
