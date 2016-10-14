@@ -8,12 +8,16 @@ function promptForLogin(uidCallback) {
         var user_email = user.email;
 
         // check if account already exists, if not add an entry.
-        var accountCheck = firebase.database().ref('users/');
-        if (!accountCheck[uid]) {
-            accountCheck.child(uid).set({admin: 'false',
-                                         email: user_email,
-                                         grid: {}});
-        }
+        var accountCheck = firebase.database().ref('users/' + uid);
+        accountCheck.once("value", snapshot => {
+            if (snapshot.val() === null) {
+                accountCheck.set({
+                    admin: 'false',
+                    email: user_email,
+                    grids: {}
+                });
+            }
+        });
 
         // Pass uid to the specified callback.
         uidCallback(user.uid);
@@ -37,5 +41,3 @@ export function manageLogin(uidCallback) {
         }
     });
 }
-
-
