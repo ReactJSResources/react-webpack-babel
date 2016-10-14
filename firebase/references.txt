@@ -1,2 +1,6 @@
 References:
     -Firebase documentation
+    -http://stackoverflow.com/questions/13535172/list-of-all-unicodes-open-close-brackets
+    -http://regexr.com
+    -https://firebase.googleblog.com/2014/04/best-practices-arrays-in-firebase.html
+    -https://gist.github.com/anantn/4323949

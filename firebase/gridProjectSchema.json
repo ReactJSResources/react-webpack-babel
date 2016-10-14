@@ -1,9 +1,22 @@
 {
-    "grid0" : {
-        "numCols" : 3,
-        "numRows" : 3,
-        "r0" : {
-            "c0" : "#000000"
+    "grids" : {
+        "grid0" : {
+            "numCols" : 3,
+            "numRows" : 3,
+            "users" : {
+                "sa" : true
+            },
+            "owner" : "sa",
+            "r0" : {
+                "c0" : "rgb(0, 0, 0)"
+            }
+        }
+    },
+    "users" : {
+        "sa" : {
+            "admin" : true,
+            "email": "test@test.com",
+            "grids" : [ "grid0" ]
         }
     }
 }

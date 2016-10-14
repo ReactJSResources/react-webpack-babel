@@ -1,19 +1,30 @@
 {
     "rules" : {
-      	".read" : "auth != null",
-        ".write" : "auth != null",
-        "$grid" : {
-            ".validate" : "$grid.matches(/^(grid)[0-9]+$/) && newData.hasChildren()",
-            "numCols" : {
-              ".validate" : "newData.val() > 0"
-            },
-            "numRows" : {
-              ".validate" : "newData.val() > 0"
-            },
-            "$row" : {
-                ".validate" : "$row.matches(/^(r)[0-9]+$/) && newData.hasChildren()",
-                "$col" : {
-                    ".validate" : "$col.matches(/^(c)[0-9]+$/) && newData.val().matches(/^#[0-9a-fA-F]{6}$/)"
+        ".read" : "auth != null && data.child('users').child(auth.uid).child('admin').val() == true",
+        ".write" : "auth != null && data.child('users').child(auth.uid).child('admin').val() == true",
+        "users" : {
+            ".read" : "auth != null",
+            ".write" : "auth != null",
+            ".indexOn" : ["email"]
+        },
+        "grids" : {
+            "$grid" : {
+                ".read" : "auth != null && data.child('users').child(auth.uid).exists()",
+                ".write" : "auth != null && data.child('users').child(auth.uid).exists()",
+    			".validate" : "newData.hasChildren()",
+                "numCols" : {
+                  ".validate" : "newData.val() > 0"
+                },
+                "numRows" : {
+                  ".validate" : "newData.val() > 0"
+                },
+                "users" : {},
+                "$row" : {
+                    ".validate" : "$row.matches(/^(r)[0-9]+$/) && newData.hasChildren()",
+                    "$col" : {
+                        ".validate" : "$col.matches(/^(c)[0-9]+$/) && newData.val().matches(/^(rgb\\()(((0|1)?[0-9]{1,2}|2[0-4][0-9]|25[0-5]),( )?){2}((0|1)?[0-9]{1,2}|2[0-4][0-9]|25[0-5])\\)$/)"
+
+                    }
                 }
             }
         }

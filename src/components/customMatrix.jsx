@@ -6,12 +6,12 @@ import {matrixID} from './data.jsx';
 export class CustomMatrix extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {rowValue: matrixID[0],columnValue: matrixID[1]};
+    this.state = {rowValue: matrixID[0]};
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    this.setState({rowValue: event.target.rowValue, columnValue: event.target.columnValue});
+    this.setState({rowValue: event.target.rowValue});
   }
 
   render() {
@@ -26,7 +26,7 @@ export class CustomMatrix extends React.Component {
       <div className="form-group">
         <label for="input" className="col-sm-1  control-label">Column</label>
         <div className="col-sm-2">
-          <input type="column" className="form-control" id="inputColumn" placeholder={matrixID[1]} value={columnValue}></input>
+          <input type="column" className="form-control" id="inputColumn" placeholder={matrixID[1]} ></input>
         </div>
         <div className="col-sm-9"></div>
       </div>

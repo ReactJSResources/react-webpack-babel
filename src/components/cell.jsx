@@ -1,19 +1,19 @@
-import styles from '.././index.scss';
 import React from 'react';
-import colors from '.././_variables.scss'
 import * as firebase from 'firebase';
+import Palette from './palette.jsx';
+import styles from '.././main.scss';
 
 export default class Cell extends React.Component {
   constructor() {
       super();
       this.state = {
-          color: '#FFFFFF'
+          color: 'rgb(255, 255, 255)'
       }
       this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-      this.cellRef = firebase.database().ref(this.props.gridID
+      this.cellRef = firebase.database().ref('grids/' + this.props.gridID
                                              + '/r' + this.props.row
                                              + '/c' + this.props.col);
       this.cellRef.on('value', snap => {
@@ -23,12 +23,12 @@ export default class Cell extends React.Component {
       });
   }
 
+  componentWillUnmount() {
+      this.cellRef.off('value');
+  }
+
   handleClick() {
-    if (this.state.color === '#FFFFFF') {
-        this.cellRef.set('#000000');
-    } else {
-        this.cellRef.set('#FFFFFF');
-    }
+    this.cellRef.set( this.props.color );
   }
 
   render() {
@@ -48,5 +48,7 @@ export default class Cell extends React.Component {
 Cell.propTypes = {
     row: React.PropTypes.number,
     col: React.PropTypes.number,
-    gridID: React.PropTypes.string
+    gridID: React.PropTypes.string,
+    color: React.PropTypes.string
+
 }
