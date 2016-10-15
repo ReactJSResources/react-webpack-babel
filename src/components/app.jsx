@@ -1,6 +1,7 @@
 import React from 'react';
 import Matrix from './matrix.jsx';
 import Palette from './palette.jsx';
+import Randomize from './randomize.jsx';
 import GridSelector from './GridSelection.jsx';
 import ShareComponent from './shareComponent.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -53,6 +54,7 @@ export default class App extends React.Component {
         </div>
         <div className="col-sm-5">
             <Palette onUpdate={ this.onUpdate }/>
+            <div><Randomize gridId={this.state.gridId} /></div>
         </div>
         <div className="col-sm-1">
             <ShareComponent gridID={ this.state.gridId }/>
