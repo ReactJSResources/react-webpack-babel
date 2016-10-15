@@ -1,6 +1,6 @@
 import React from 'react';
 import Matrix from './matrix.jsx';
-import CustomMatrix from './customMatrix.jsx'
+import MatrixSize from './matrixSize.jsx'
 import Palette from './palette.jsx';
 import GridSelector from './GridSelection.jsx';
 import ShareComponent from './shareComponent.jsx';
@@ -14,7 +14,9 @@ export default class App extends React.Component {
     this.state = {
       selectedColor: 'rgb(0, 0, 0)',
       gridId: 'null',
-      possibleGrids: {}
+      possibleGrids: {},
+      numRows: 0,
+      numCols: 0
     }
     this.onUpdate = this.onUpdate.bind(this);
     this.changeGrid = this.changeGrid.bind(this);
@@ -38,6 +40,16 @@ export default class App extends React.Component {
 
   changeGrid(newGrid) {
       this.setState({gridId: newGrid});
+
+      let rowRef = firebase.database().ref('grids/' + newGrid +'/numRows');
+      rowRef.on('value', snap => {
+          this.setState({numRows: snap.val()});
+      });
+
+      let colRef = firebase.database().ref('grids/' + newGrid +'/numCols');
+      rowRef.on('value', snap => {
+          this.setState({numCols: snap.val()});
+      });
   }
 
   render() {
@@ -59,7 +71,7 @@ export default class App extends React.Component {
             <ShareComponent gridID={ this.state.gridId }/>
         </div>
         <div className="col-sm-1">
-            <CustomMatrix/>
+            <MatrixSize gridId={ this.state.gridId} numRows={this.state.numRows} numCols={this.state.numCols} />
         </div>
       </div>
     )
