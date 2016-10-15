@@ -6,7 +6,16 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HOST = process.env.HOST || "127.0.0.1";
 const PORT = process.env.PORT || "8888";
-
+const AUTOPREFIXER_BROWSERS = [
+  'Android 2.3',
+  'Android >= 4',
+  'Chrome >= 35',
+  'Firefox >= 31',
+  'Explorer >= 9',
+  'iOS >= 7',
+  'Opera >= 12',
+  'Safari >= 7.1',
+];
 // global css
 loaders.push({
 	test: /[\/\\](node_modules|global)[\/\\].*\.css$/,
@@ -18,10 +27,10 @@ loaders.push({
 // local scss modules
 loaders.push({
 	test: /[\/\\]src[\/\\].*\.scss/,
-	exclude: /(node_modules|bower_components|public)/,
 	loaders: [
 		'style?sourceMap',
 		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+		'postcss',
 		'sass'
 	]
 });
@@ -29,7 +38,6 @@ loaders.push({
 // local css modules
 loaders.push({
 	test: /[\/\\]src[\/\\].*\.css/,
-	exclude: /(node_modules|bower_components|public)/,
 	loaders: [
 		'style?sourceMap',
 		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
@@ -72,5 +80,8 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/template.html'
 		}),
-	]
+	],
+	postcss: [
+    	require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS })
+  	]
 };
