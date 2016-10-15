@@ -39,7 +39,6 @@ export default class Matrix extends React.Component {
      });
   }
 
-
   render() {
     if (this.state.numRows === 0 || this.state.numCols === 0) {
         return(
@@ -61,6 +60,7 @@ export default class Matrix extends React.Component {
     )
   }
 }
+
 Matrix.propTypes = {
     gridID: React.PropTypes.string,
     color: React.PropTypes.string
