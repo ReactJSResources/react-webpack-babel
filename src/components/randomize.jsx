@@ -2,8 +2,6 @@ import React from 'react';
 import * as firebase from 'firebase';
 import {matrixID} from './data.jsx';
 import Matrix from './matrix.jsx';
-//import variables from './../_variables.scss';
-
 export default class Randomize extends React.Component {
   constructor(){
     super();
@@ -33,14 +31,12 @@ export default class Randomize extends React.Component {
     var length = end - (start+startlen);
     var index;
 
-    console.log(randomColorStr);
-    for (var k=0; k<length; k++){
+    for (var k=0; k<length; k++)
+    {
       index = start+startlen+k;
-      randomColor = randomColor + randomColorStr.charAt(index);  
-    
+      randomColor = randomColor + randomColorStr.charAt(index);
     }
-    console.log("RGB Random is " + randomColor);
-    // change cell color
+
     cellRef.transaction(function() {
         return randomColor;
       });

@@ -40,6 +40,10 @@ export default class App extends React.Component {
       this.setState({gridId: newGrid});
   }
 
+  resetGridColors(){
+    this.setState({selectedColor: 'rgb(0, 0, 0)'});
+  }
+
   render() {
       console.log(this.state.possibleGrids);
     return (
@@ -54,6 +58,7 @@ export default class App extends React.Component {
         </div>
         <div className="col-sm-5">
             <Palette onUpdate={ this.onUpdate }/>
+            <button className="button" onClick={this.resetGridColors}/>Reset</button>
             <div><Randomize gridId={this.state.gridId} /></div>
         </div>
         <div className="col-sm-1">
