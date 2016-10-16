@@ -6,16 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HOST = process.env.HOST || "127.0.0.1";
 const PORT = process.env.PORT || "8888";
-const AUTOPREFIXER_BROWSERS = [
-  'Android 2.3',
-  'Android >= 4',
-  'Chrome >= 35',
-  'Firefox >= 31',
-  'Explorer >= 9',
-  'iOS >= 7',
-  'Opera >= 12',
-  'Safari >= 7.1',
-];
+
 // global css
 loaders.push({
 	test: /[\/\\](node_modules|global)[\/\\].*\.css$/,
@@ -80,8 +71,5 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/template.html'
 		}),
-	],
-	postcss: [
-    	require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS })
-  	]
+	]
 };
