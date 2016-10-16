@@ -58,7 +58,7 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			template: './src/template.html',
-			title: 'To-Do List'
+			title: 'Webpack App'
 		}),
 		new webpack.optimize.DedupePlugin()
 	]
