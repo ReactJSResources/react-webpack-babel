@@ -24,7 +24,7 @@ export default class Cell extends React.Component {
   }
 
   componentWillUnmount() {
-      this.cellRef.off('value');
+    this.cellRef.off('value');
   }
 
   handleClick() {

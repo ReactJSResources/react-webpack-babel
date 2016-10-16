@@ -5,6 +5,7 @@ import Palette from './palette.jsx';
 import Randomize from './randomize.jsx';
 import GridSelector from './GridSelection.jsx';
 import ShareComponent from './shareComponent.jsx';
+import styles from '../main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as firebase from 'firebase';
 import {manageLogin} from '../util/login.js'
@@ -56,27 +57,32 @@ export default class App extends React.Component {
   }
 
   render() {
-      console.log(this.state.possibleGrids);
+    console.log(this.state.possibleGrids);
     return (
-      <div className="container">
-        <div>
+      <div>
+        <div className="row">
+          <div className="col-sm-6">
+            <ShareComponent gridID={ this.state.gridId }/>
+            <MatrixSize gridId={ this.state.gridId} updateGrid={this.changeGrid}/>
             <GridSelector gridSelector={this.changeGrid}
                           possibleGrids={this.state.possibleGrids}/>
-        </div>
-        <div className="col-sm-6">
-            <Matrix color={ this.state.selectedColor }
-                    gridID={ this.state.gridId } numCols={this.state.numCols }  numRows={ this.state.numRows }/>
-        </div>
-        <div className="col-sm-4">
-            <Palette onUpdate={ this.onUpdate }/>
+          </div>
+          <div className="col-sm-6">
+            <Randomize gridId={this.state.gridId} />
             <button className="button" onClick={this.resetGridColors}>Reset</button>
-            <div><Randomize gridId={this.state.gridId} /></div>
+          </div>
         </div>
-        <div className="col-sm-1">
-            <ShareComponent gridID={ this.state.gridId }/>
-        </div>
-        <div className="col-sm-1">
-            <MatrixSize gridId={ this.state.gridId} updateGrid={this.changeGrid}/>
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-10">
+              <Matrix color={ this.state.selectedColor }
+                      gridID={ this.state.gridId } 
+                      numCols={this.state.numCols }  
+                      numRows={ this.state.numRows }
+              />
+          </div>
+          <div className="col-xs-12 col-sm-12 col-md-2">
+              <Palette onUpdate={ this.onUpdate }/>
+          </div>
         </div>
       </div>
     )
