@@ -37,9 +37,6 @@ export default class App extends React.Component {
   onUpdate( val ){
     this.setState({ selectedColor: val });
   }
-  updateMatrixSize(updatedGrid){
-    this.setState({gridID: updatedGrid})
-  }
   changeGrid(newGrid) {
       this.setState({gridId: newGrid});
 
@@ -47,7 +44,6 @@ export default class App extends React.Component {
       rowRef.on('value', snap => {
           this.setState({numRows: snap.val()});
       });
-
       let colRef = firebase.database().ref('grids/' + newGrid +'/numCols');
       rowRef.on('value', snap => {
           this.setState({numCols: snap.val()});
@@ -64,7 +60,7 @@ export default class App extends React.Component {
         </div>
         <div className="col-sm-6">
             <Matrix color={ this.state.selectedColor }
-                    gridID={ this.state.gridId }/>
+                    gridID={ this.state.gridId } numCols={ this.state.numCols } numRows={ this.state.numRows }/>
         </div>
         <div className="col-sm-4">
             <Palette onUpdate={ this.onUpdate }/>
@@ -73,7 +69,7 @@ export default class App extends React.Component {
             <ShareComponent gridID={ this.state.gridId }/>
         </div>
         <div className="col-sm-1">
-            <MatrixSize gridId={ this.state.gridId} updateMatrixSize={this.updateMatrixSize}/>
+            <MatrixSize gridId={ this.state.gridId} updateGrid={this.changeGrid}/>
         </div>
       </div>
     )
