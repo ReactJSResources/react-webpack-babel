@@ -2,6 +2,7 @@ import React from 'react';
 import Matrix from './matrix.jsx';
 import MatrixSize from './matrixSize.jsx'
 import Palette from './palette.jsx';
+import Randomize from './randomize.jsx';
 import GridSelector from './GridSelection.jsx';
 import ShareComponent from './shareComponent.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -50,6 +51,10 @@ export default class App extends React.Component {
       });
   }
 
+  resetGridColors(){
+    this.setState({selectedColor: 'rgb(0, 0, 0)'});
+  }
+
   render() {
       console.log(this.state.possibleGrids);
     return (
@@ -64,6 +69,8 @@ export default class App extends React.Component {
         </div>
         <div className="col-sm-4">
             <Palette onUpdate={ this.onUpdate }/>
+            <button className="button" onClick={this.resetGridColors}>Reset</button>
+            <div><Randomize gridId={this.state.gridId} /></div>
         </div>
         <div className="col-sm-1">
             <ShareComponent gridID={ this.state.gridId }/>
