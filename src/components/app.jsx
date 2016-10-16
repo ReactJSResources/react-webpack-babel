@@ -1,5 +1,6 @@
 import React from 'react';
 import Matrix from './matrix.jsx';
+import MatrixSize from './matrixSize.jsx'
 import Palette from './palette.jsx';
 import Randomize from './randomize.jsx';
 import GridSelector from './GridSelection.jsx';
@@ -14,7 +15,9 @@ export default class App extends React.Component {
     this.state = {
       selectedColor: 'rgb(0, 0, 0)',
       gridId: 'null',
-      possibleGrids: {}
+      possibleGrids: {},
+      numRows: 0,
+      numCols: 0
     }
     this.onUpdate = this.onUpdate.bind(this);
     this.changeGrid = this.changeGrid.bind(this);
@@ -35,9 +38,17 @@ export default class App extends React.Component {
   onUpdate( val ){
     this.setState({ selectedColor: val });
   }
-
   changeGrid(newGrid) {
       this.setState({gridId: newGrid});
+
+      let rowRef = firebase.database().ref('grids/' + newGrid +'/numRows');
+      rowRef.on('value', snap => {
+          this.setState({numRows: snap.val()});
+      });
+      let colRef = firebase.database().ref('grids/' + newGrid +'/numCols');
+      rowRef.on('value', snap => {
+          this.setState({numCols: snap.val()});
+      });
   }
 
   resetGridColors(){
@@ -54,15 +65,18 @@ export default class App extends React.Component {
         </div>
         <div className="col-sm-6">
             <Matrix color={ this.state.selectedColor }
-                    gridID={ this.state.gridId }/>
+                    gridID={ this.state.gridId } numCols={this.state.numCols }  numRows={ this.state.numRows }/>
         </div>
-        <div className="col-sm-5">
+        <div className="col-sm-4">
             <Palette onUpdate={ this.onUpdate }/>
             <button className="button" onClick={this.resetGridColors}>Reset</button>
             <div><Randomize gridId={this.state.gridId} /></div>
         </div>
         <div className="col-sm-1">
             <ShareComponent gridID={ this.state.gridId }/>
+        </div>
+        <div className="col-sm-1">
+            <MatrixSize gridId={ this.state.gridId} updateGrid={this.changeGrid}/>
         </div>
       </div>
     )
