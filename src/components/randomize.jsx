@@ -19,9 +19,6 @@ export default class Randomize extends React.Component {
     var cellsToChange = Math.floor(Math.random()*rows*columns);
     const colorStyleSheet = document.styleSheets[0].cssRules;
 
-    console.log(colorStyleSheet);
-
-
     for(var i=0; i<cellsToChange; i++)
     {
     var randomRow = 'r' + Math.floor(Math.random() * rows) + '/';
@@ -34,11 +31,7 @@ export default class Randomize extends React.Component {
     var end = parseInt(randomColorStr.indexOf(';'));
     var randomColor = '';
     var length = end - (start+startlen);
-    console.log(randomColorStr.charAt(start));
-    console.log(randomColorStr.charAt(start+1));
-    console.log(randomColorStr.charAt(start+2));
-    console.log(randomColorStr.charAt(start+3));
-    var index=0;
+    var index;
 
     console.log(randomColorStr);
     for (var k=0; k<length; k++){
