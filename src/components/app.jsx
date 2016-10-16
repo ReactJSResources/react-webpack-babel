@@ -37,7 +37,9 @@ export default class App extends React.Component {
   onUpdate( val ){
     this.setState({ selectedColor: val });
   }
-
+  updateMatrixSize(updatedGrid){
+    this.setState({gridID: updatedGrid})
+  }
   changeGrid(newGrid) {
       this.setState({gridId: newGrid});
 
@@ -71,7 +73,7 @@ export default class App extends React.Component {
             <ShareComponent gridID={ this.state.gridId }/>
         </div>
         <div className="col-sm-1">
-            <MatrixSize gridId={ this.state.gridId} numRows={this.state.numRows} numCols={this.state.numCols} />
+            <MatrixSize gridId={ this.state.gridId} updateMatrixSize={this.updateMatrixSize}/>
         </div>
       </div>
     )

@@ -11,30 +11,18 @@ export default class MatrixSize extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
   onUpdateRow(event) {
-      this.setState({ numRows: event.target.value });
+      this.setState({ numRows: event.target.value,gridId: this.props.gridId });
   }
   onUpdateCol(event) {
       this.setState({ numCols: event.target.value });
   }
   handleClick(){
-    let rowRef = firebase.database().ref('grids/' + this.props.gridId).update({
-    numRows: this.state.numRows
-    }).then(function(ref) {
-    console.log(ref)
-    }).catch(function(error) {
-    console.log('Failed: ' + error);
-    });
-    let colRef = firebase.database().ref('grids/' + this.props.gridId).update({
-    numCols: this.state.numCols
-    }).then(function(ref) {
-    console.log(ref)
-    }).catch(function(error) {
-    console.log('Failed: ' + error);
-    });
+  firebase.database().ref('grids/' + this.state.gridId + '/numRows' ).set(this.state.numRows);
+  firebase.database().ref('grids/' + this.state.gridId + '/numCols' ).set(this.state.numCols);
+   this.props.updateMatrixSize(this.state.gridId);
   }
   componentDidMount(){
-    this.setState({numRows: this.props.numRows,numCols: this.props.numCols,gridId: this.props.gridId})
-
+    this.setState({gridId: this.props.gridId});
   }
 
   render() {
@@ -58,6 +46,5 @@ export default class MatrixSize extends React.Component {
 
 MatrixSize.propTypes = {
   gridId: React.PropTypes.string,
-  numRows: React.PropTypes.any,
-  numCols: React.PropTypes.any
+  updateMatrixSize: React.PropTypes.func
 }
