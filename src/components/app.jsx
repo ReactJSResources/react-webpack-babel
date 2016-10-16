@@ -65,7 +65,7 @@ export default class App extends React.Component {
         </div>
         <div className="col-sm-6">
             <Matrix color={ this.state.selectedColor }
-                    gridID={ this.state.gridId } numCols={ this.state.numCols } numRows={ this.state.numRows }/>
+                    gridID={ this.state.gridId } numCols={this.state.numCols }  numRows={ this.state.numRows }/>
         </div>
         <div className="col-sm-4">
             <Palette onUpdate={ this.onUpdate }/>
