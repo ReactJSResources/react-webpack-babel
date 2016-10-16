@@ -1,9 +1,9 @@
 .cell {
     border: 1px solid rgba(0, 0, 0, 0.3);
     display: inline-block;
-    height: 5vw;
+    height: 4vw;
     margin: 0 3px;
-    width: 5vw;
+    width: 4vw;
 }
 
 .active {
@@ -14,7 +14,6 @@
 .matrix {
     display: inline-block;
     margin: 20px auto;
-    max-width: 100%;
 }
 
 .matrixColumn {
@@ -39,15 +38,18 @@
 }
 
 /* Media Queries */
-@media( max-width: 930px ){
+@media( max-width: 970px ){
     .cell {
         height: 30px;
         width: 30px;
     }
+    .palette {
+        margin: 10px auto;
+    }
     .paintPot {
         display: inline-block;
         height: 40px;
-        margin: auto 2vw;
+        margin: 1vh 2vw;
         width: 40px;
     }
 }

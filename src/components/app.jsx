@@ -3,7 +3,7 @@ import Matrix from './matrix.jsx';
 import Palette from './palette.jsx';
 import GridSelector from './GridSelection.jsx';
 import ShareComponent from './shareComponent.jsx';
-import '../main.scss';
+import styles from '../main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as firebase from 'firebase';
 import {manageLogin} from '../util/login.js'
@@ -43,18 +43,21 @@ export default class App extends React.Component {
   render() {
     console.log(this.state.possibleGrids);
     return (
-      <div className="row">
+      <div>
         <div>
           <ShareComponent gridID={ this.state.gridId }/>
           <GridSelector gridSelector={this.changeGrid}
                         possibleGrids={this.state.possibleGrids}/>
         </div>
-        <div className="container">
-          <div className="col-xs-12 col-sm-9">
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-10"
+               style={ textAlign: center } 
+          >
               <Matrix color={ this.state.selectedColor }
-                      gridID={ this.state.gridId }/>
+                      gridID={ this.state.gridId }
+              />
           </div>
-          <div className="col-xs-12 col-sm-3">
+          <div className="col-xs-12 col-sm-12 col-md-2">
               <Palette onUpdate={ this.onUpdate }/>
           </div>
         </div>
