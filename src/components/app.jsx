@@ -1,13 +1,17 @@
 import React from 'react';
+import * as firebase from 'firebase';
+
 import Matrix from './matrix.jsx';
 import MatrixSize from './matrixSize.jsx'
 import Palette from './palette.jsx';
 import Randomize from './randomize.jsx';
 import GridSelector from './GridSelection.jsx';
 import ShareComponent from './shareComponent.jsx';
+import NavBar from './navbar.jsx';
+
 import styles from '../main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import * as firebase from 'firebase';
+
 import {manageLogin} from '../util/login.js'
 
 export default class App extends React.Component {
@@ -61,6 +65,7 @@ export default class App extends React.Component {
     return (
       <div>
         <div className="row">
+          <NavBar />
           <div className="col-sm-6">
             <ShareComponent gridID={ this.state.gridId }/>
             <MatrixSize gridId={ this.state.gridId} updateGrid={this.changeGrid}/>
