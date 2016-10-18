@@ -62,7 +62,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.possibleGrids);
     return (
       <div>
         <NavBar/>
@@ -70,7 +69,9 @@ export default class App extends React.Component {
           <div className="row">
             <div className={styles.topBuffer}></div>
             <div className="col-sm-2">
-              <GridSelector gridSelector={this.changeGrid}/>
+              <GridSelector gridSelector={this.changeGrid}
+                            possibleGrids={this.state.possibleGrids}
+              />
             </div>
             <div className="col-sm-2">
               <Randomize gridId={this.state.gridId}/>
