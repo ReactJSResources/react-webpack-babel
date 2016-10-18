@@ -6,8 +6,8 @@
     width: 4vw;
 }
 
-.active {
-    border: 10px double rgba(0, 0, 0, 0.5);
+.topBuffer {
+  margin-top: 20px;
 }
 
 /* Matrix Styles */
@@ -35,10 +35,6 @@
     height: 4.5vw;
     margin: 3vh auto;
     width: 4.5vw;
-}
-
-.topBuffer {
-  margin-top:20px;
 }
 
 /* Media Queries */
