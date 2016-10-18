@@ -72,7 +72,7 @@ export default class App extends React.Component {
             <MatrixSize gridId={ this.state.gridId} updateGrid={this.changeGrid}/>
             <GridSelector gridSelector={this.changeGrid}
                           possibleGrids={this.state.possibleGrids}/>
-            <DeleteGrid/>
+            <DeleteGrid gridID={ this.state.gridId }/>
           </div>
           <div className="col-sm-6">
             <Randomize gridId={this.state.gridId} />

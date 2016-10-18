@@ -5,7 +5,7 @@ import colors from '.././_colors.scss';
 export default class Palette extends React.Component {
   constructor(){
     super();
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind( this );
   }
 
   handleClick( event ){
