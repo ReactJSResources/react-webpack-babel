@@ -48,7 +48,7 @@ export default class ShareComponent extends React.Component {
     render() {
         return (
             <div>
-                <input type="text"  className="form-control" placeholder="type an email" onChange={ this.onUpdate }/>
+                <input type="text"  className="form-control" placeholder="Type an email" onChange={ this.onUpdate }/>
                 <button className="btn btn-default" onClick={ this.handleClick }>Share</button>
             </div>
         )
