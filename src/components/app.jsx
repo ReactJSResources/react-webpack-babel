@@ -68,27 +68,35 @@ export default class App extends React.Component {
         <div className="row">
           <NavBar />
           <div className="col-sm-6">
-            <ShareComponent gridID={ this.state.gridId }/>
-            <MatrixSize gridId={ this.state.gridId} updateGrid={this.changeGrid}/>
             <GridSelector gridSelector={this.changeGrid}
-                          possibleGrids={this.state.possibleGrids}/>
-            <DeleteGrid/>
           </div>
           <div className="col-sm-6">
             <Randomize gridId={this.state.gridId} />
-            <button className="button" onClick={this.resetGridColors}>Reset</button>
+            <button className="button" className="btn btn-default" onClick={this.resetGridColors}>Reset</button>
           </div>
         </div>
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-10">
               <Matrix color={ this.state.selectedColor }
-                      gridID={ this.state.gridId } 
-                      numCols={this.state.numCols }  
+                      gridID={ this.state.gridId }
+                      numCols={this.state.numCols }
                       numRows={ this.state.numRows }
               />
           </div>
           <div className="col-xs-12 col-sm-12 col-md-2">
               <Palette onUpdate={ this.onUpdate }/>
+          </div>
+          <div className="row">
+            <div className="col-sm-5">
+              <ShareComponent gridID={ this.state.gridId }/>
+            </div>
+            <div className="col-sm-5">
+              <MatrixSize gridId={ this.state.gridId} updateGrid={this.changeGrid}/>
+            </div>
+           <div className="col-sm-2">>
+             <possibleGrids={this.state.possibleGrids}/>
+             <DeleteGrid/>
+            </div>
           </div>
         </div>
       </div>
