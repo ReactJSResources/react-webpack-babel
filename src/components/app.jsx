@@ -67,11 +67,13 @@ export default class App extends React.Component {
       <div>
         <div className="row">
           <NavBar />
-          <div className="col-sm-6">
-            <GridSelector gridSelector={this.changeGrid}
+          <div className="col-sm-2">
+            <GridSelector gridSelector={this.changeGrid}/>
           </div>
-          <div className="col-sm-6">
+          <div className="col-sm-2">
             <Randomize gridId={this.state.gridId} />
+          </div>
+          <div className="col-sm-2">
             <button className="button" className="btn btn-default" onClick={this.resetGridColors}>Reset</button>
           </div>
         </div>
@@ -87,14 +89,13 @@ export default class App extends React.Component {
               <Palette onUpdate={ this.onUpdate }/>
           </div>
           <div className="row">
-            <div className="col-sm-5">
+            <div className="col-sm-3">
               <ShareComponent gridID={ this.state.gridId }/>
             </div>
-            <div className="col-sm-5">
+            <div className="col-sm-3">
               <MatrixSize gridId={ this.state.gridId} updateGrid={this.changeGrid}/>
             </div>
-           <div className="col-sm-2">>
-             <possibleGrids={this.state.possibleGrids}/>
+           <div className="col-sm-6">
              <DeleteGrid/>
             </div>
           </div>
