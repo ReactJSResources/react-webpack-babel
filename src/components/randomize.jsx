@@ -6,38 +6,38 @@ export default class Randomize extends React.Component {
   constructor(){
     super();
     this.handleClick = this.handleClick.bind(this);
-
   }
 
-  handleClick(gridId) {
-
-    var gridId = this.props.gridId + '/';
-    var rows = matrixID[0];
-    var columns = matrixID[1];
-    var cellsToChange = Math.floor(Math.random()*rows*columns);
+  handleClick() {
+    const gridId = this.props.gridId + '/';
+    const rows = matrixID[0];
+    const columns = matrixID[1];
+    const cellsToChange = Math.floor(Math.random() * rows * columns);
     const colorStyleSheet = document.styleSheets[0].cssRules;
 
-    for(var i=0; i<cellsToChange; i++)
-    {
-    var randomRow = 'r' + Math.floor(Math.random() * rows) + '/';
-    var randomColumn = 'c' + Math.floor(Math.random() * columns) + '/';
-    var cellRef = firebase.database().ref('grids/'+gridId + randomRow + randomColumn);
-    var colorIndex = Math.floor(Math.random() * 5);
-    var randomColorStr = colorStyleSheet[colorIndex].cssText.toString();
-    var start = parseInt(randomColorStr.indexOf('color: '));
-    var startlen = 'color: '.length;
-    var end = parseInt(randomColorStr.indexOf(';'));
-    var randomColor = '';
-    var length = end - (start+startlen);
-    var index;
+    for( var i = 0; i < cellsToChange; i++ ){
+      let randomRow = 'r' + Math.floor(Math.random() * rows) + '/';
+      let randomColumn = 'c' + Math.floor(Math.random() * columns) + '/';
 
-    for (var k=0; k<length; k++)
-    {
-      index = start+startlen+k;
-      randomColor = randomColor + randomColorStr.charAt(index);
-    }
+      let colorIndex = Math.floor(Math.random() * 5);
+      let randomColorStr = colorStyleSheet[colorIndex].cssText.toString();
 
-    cellRef.transaction(function() {
+      const cellRef = firebase.database().ref('grids/' + gridId + randomRow + randomColumn);
+
+      let start = parseInt(randomColorStr.indexOf('color: '));
+      let startlen = 'color: '.length;
+      let end = parseInt(randomColorStr.indexOf(';'));
+
+      let length = end - (start + startlen);
+      let randomColor = '';
+      let index;
+
+      for( var k = 0; k < length; k++ ){
+        index = start + startlen + k;
+        randomColor = randomColor + randomColorStr.charAt(index);
+      }
+
+      cellRef.transaction(function() {
         return randomColor;
       });
     }
