@@ -8,6 +8,7 @@ import Randomize from './randomize.jsx';
 import GridSelector from './GridSelection.jsx';
 import ShareComponent from './shareComponent.jsx';
 import NavBar from './navbar.jsx';
+import DeleteGrid from './deleteGrid.jsx';
 
 import styles from '../main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -71,6 +72,7 @@ export default class App extends React.Component {
             <MatrixSize gridId={ this.state.gridId} updateGrid={this.changeGrid}/>
             <GridSelector gridSelector={this.changeGrid}
                           possibleGrids={this.state.possibleGrids}/>
+            <DeleteGrid/>
           </div>
           <div className="col-sm-6">
             <Randomize gridId={this.state.gridId} />
