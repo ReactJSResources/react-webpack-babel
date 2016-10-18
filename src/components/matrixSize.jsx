@@ -30,16 +30,16 @@ export default class MatrixSize extends React.Component {
     return (
     <div>
     <input
-        type="text"
+        className="form-control" type="text"
         placeholder="Enter new Row"
         defaultValue={this.state.numCols}
         onChange={this.onUpdateRow}/>
-        <input
-            type="text"
-            placeholder="Enter New Column"
-            defaultValue={this.state.numCols}
-            onChange={this.onUpdateCol}/>
-        <button onClick={ this.handleClick }>Update Grid</button>
+    <input
+        className="form-control" type="text"
+        placeholder="Enter New Column"
+        defaultValue={this.state.numCols}
+        onChange={this.onUpdateCol}/>
+    <button className="btn btn-default" onClick={ this.handleClick }>Update Grid</button>
       </div>
     );
   }

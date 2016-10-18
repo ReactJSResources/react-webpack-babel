@@ -46,7 +46,7 @@ export default class Randomize extends React.Component {
   render() {
     return (
       <div>
-        <button className="button" onClick={this.handleClick}>Randomize</button>      
+        <button className="button" className="btn btn-default" onClick={this.handleClick}>Randomize</button>      
       </div>
     )
   }
