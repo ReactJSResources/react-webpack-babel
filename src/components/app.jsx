@@ -96,10 +96,10 @@ export default class App extends React.Component {
                 <ShareComponent gridID={ this.state.gridId }/>
               </div>
               <div className="cols-sm-offset-2 col-sm-2">
-                <MatrixSize gridId={ this.state.gridId} updateGrid={this.changeGrid}/>
+                <MatrixSize gridId={ this.state.gridId } updateGrid={this.changeGrid}/>
               </div>
               <div className="col-sm-5">
-               <DeleteGrid/>
+               <DeleteGrid gridId={ this.state.gridId }/>
               </div>
             </div>
           </div>
