@@ -18,7 +18,7 @@ export default class Matrix extends React.Component {
  }
 
   componentWillReceiveProps(nextProps) {
-      if (this.props.numCols !== nextProps.numCols) {
+      if (this.props.gridID !== nextProps.gridID) {
           this.updateGridSize(nextProps);
       }
   }
@@ -26,17 +26,21 @@ export default class Matrix extends React.Component {
   updateGridSize(nextProps) {
      this.setState({numRows: 0, numCols: 0});
      this.rowRef = firebase.database().ref('grids/' + nextProps.gridID + '/numRows');
-     this.rowRef.once('value', snap => {
-         if (snap.val() !== null) {
-             this.setState({numRows: snap.val()});
-         }
-     });
      this.colRef = firebase.database().ref('grids/' + nextProps.gridID + '/numCols');
-     this.colRef.once('value', snap => {
-         if (snap.val() !== null) {
-             this.setState({numCols: snap.val()});
-         }
-     });
+     try {
+        this.rowRef.once('value', snap => {
+            if (snap.val() !== null) {
+                this.setState({numRows: snap.val()});
+            }
+        });
+        this.colRef.once('value', snap => {
+            if (snap.val() !== null) {
+                this.setState({numCols: snap.val()});
+            }
+        });
+     } catch (err) {
+         console.log(err);
+     }
   }
 
   render() {
@@ -45,7 +49,6 @@ export default class Matrix extends React.Component {
           <p> Could not load grid! </p>
         )
     }
-    console.log(this.props);
     let matrix = []
     for(var i = 0; i < this.state.numCols;i++){
       let column = []

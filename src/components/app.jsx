@@ -62,6 +62,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.gridId);
     return (
       <div>
         <NavBar/>
@@ -99,7 +100,8 @@ export default class App extends React.Component {
                 <MatrixSize gridId={ this.state.gridId } updateGrid={this.changeGrid}/>
               </div>
               <div className="col-sm-5">
-               <DeleteGrid gridId={ this.state.gridId }/>
+               <DeleteGrid gridId={ this.state.gridId }
+                           gridRemoval={this.changeGrid}/>
               </div>
             </div>
           </div>

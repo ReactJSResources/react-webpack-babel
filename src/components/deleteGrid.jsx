@@ -15,7 +15,7 @@ export default class DeleteGrid extends React.Component {
     manageLogin(this.deleteUserGrid);
   }
 
-  deleteUserGrid( uid ){
+  deleteUserGrid(uid){
     this.gridRef = firebase.database().ref('grids/' + this.props.gridId
             + "/users/" + uid);
     this.userRef = firebase.database().ref('users/' + uid + '/grids/'
@@ -23,6 +23,7 @@ export default class DeleteGrid extends React.Component {
 
     this.gridRef.remove();
     this.userRef.remove();
+    this.props.gridRemoval(null);
   }
 
   render() {
@@ -37,5 +38,6 @@ export default class DeleteGrid extends React.Component {
 }
 
 DeleteGrid.propTypes = {
-    gridId: React.PropTypes.string
+    gridId: React.PropTypes.string,
+    gridRemoval: React.PropTypes.func
 }
