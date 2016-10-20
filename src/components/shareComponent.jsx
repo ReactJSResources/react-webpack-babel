@@ -25,9 +25,8 @@ export default class ShareComponent extends React.Component {
                 var newGridUserEntryRef = gridRef.child('users').child(userSnapshot.key);
 
                 gridRef.once('value', gridRefSnapshot => {
-
                     //only add user to grid if the user is not on the grid
-                    if(userSnapshot.child('grids').child(this.props.gridID).val() === null)
+                    if(gridRefSnapshot.child('users').child(userSnapshot.key).val() === null)
                     {
                         //update the grid's list of users
                         newGridUserEntryRef.set(true);
@@ -38,7 +37,7 @@ export default class ShareComponent extends React.Component {
                     }
 
                     //only add grid to user if the grid is not on the user
-                    if(gridRefSnapshot.child('users').child(userSnapshot.key).val() === null)
+                    if(userSnapshot.child('grids').child(this.props.gridID).val() === null)
                     {
                         //update the user's list of grids
                         var newUserGridEntryRef = firebase.database().ref('users/' + userSnapshot.key + '/grids/' + this.props.gridID);
@@ -48,7 +47,7 @@ export default class ShareComponent extends React.Component {
                     {
                         console.log("The specified grid already is already listed on this user");
                     }
-                });
+                }, error => { console.log(error) });
             }
         });
     }
