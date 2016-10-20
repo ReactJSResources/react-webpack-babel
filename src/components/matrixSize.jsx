@@ -17,9 +17,9 @@ export default class MatrixSize extends React.Component {
       this.setState({ numCols: event.target.value });
   }
   handleClick(){
-  firebase.database().ref('grids/' + this.state.gridId + '/numRows' ).set(parseInt(this.state.numRows));
-  firebase.database().ref('grids/' + this.state.gridId + '/numCols' ).set(parseInt(this.state.numCols));
-  console.log()
+  firebase.database().ref('grids/' + this.state.gridId + '/numRows' ).set(this.state.numRows);
+  firebase.database().ref('grids/' + this.state.gridId + '/numCols' ).set(this.state.numCols);
+
    this.props.updateGrid(this.state.gridId);
   }
   componentDidMount(){
