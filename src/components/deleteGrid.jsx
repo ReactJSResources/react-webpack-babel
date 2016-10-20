@@ -11,25 +11,21 @@ export default class DeleteGrid extends React.Component {
     this.deleteUserGrid = this.deleteUserGrid.bind( this );
   }
 
-  handleClick( event ){
+  handleClick(event){
     manageLogin(this.deleteUserGrid);
   }
 
   deleteUserGrid( uid ){
-    this.gridRef = firebase.database().ref('grids/' + this.props.gridId);
-    this.userRef = firebase.database().ref('users/' + uid + '/grids');
+    this.gridRef = firebase.database().ref('grids/' + this.props.gridId
+            + "/users/" + uid);
+    this.userRef = firebase.database().ref('users/' + uid + '/grids/'
+            + this.props.gridId);
 
     this.gridRef.remove();
-    this.userRef.once( 'value', snapshot => {
-        snapshot.forEach( grid => {
-            if( grid.val() == this.props.gridId ){
-                this.userRef.child( grid.key ).remove();
-            }
-        } );
-    } );
+    this.userRef.remove();
   }
 
-  render(){
+  render() {
     return(
       <button type="button"
             className="btn btn-danger"
@@ -37,7 +33,7 @@ export default class DeleteGrid extends React.Component {
         Delete Grid
       </button>
     );
-  } 
+  }
 }
 
 DeleteGrid.propTypes = {
