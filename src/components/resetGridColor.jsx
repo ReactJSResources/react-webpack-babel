@@ -20,7 +20,7 @@ export default class ResetGridColor extends React.Component {
 
         gridRef.child( rowRef ).child( colRef ).set( 'rgb(255, 255, 255)' );
       }
-    } 
+    }
   }
 
   render(){

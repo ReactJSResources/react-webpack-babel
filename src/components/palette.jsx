@@ -31,9 +31,12 @@ export default class Palette extends React.Component {
       )
     }
 
+    const halfOfPaint = Math.ceil( paintPots.length / 2 );
+
     return(
-      <div className={ styles.palette }>
-        <div className="row">{ paintPots }</div>
+      <div className={ 'row ' + styles.palette }>
+        <div className="col-md-5">{ paintPots.splice( 0, halfOfPaint ) }</div>
+        <div className="col-md-5">{ paintPots.splice( 0, halfOfPaint ) }</div>
       </div>
     )
   }
