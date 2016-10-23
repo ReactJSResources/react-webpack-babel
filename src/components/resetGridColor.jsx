@@ -8,7 +8,7 @@ export default class ResetGridColor extends React.Component {
   }
 
   handleClick( event ){
-    const gridRef = firebase.database().ref('grids/' this.props.gridId + '/');
+    const gridRef = firebase.database().ref('grids/' + this.props.gridId + '/');
 
     const numRows = this.props.numRows;
     const numCols = this.props.numCols;
