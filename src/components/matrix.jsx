@@ -45,7 +45,6 @@ export default class Matrix extends React.Component {
           <p> Could not load grid! </p>
         )
     }
-    console.log(this.props);
     let matrix = []
     for(var i = 0; i < this.state.numCols;i++){
       let column = []

@@ -10,7 +10,7 @@ export default class Palette extends React.Component {
 
   handleClick( event ){
     // onUpdate updates the parent with the color to pass to the matrix cell
-    this.props.onUpdate( event.target.style.backgroundColor );
+    this.props.onSelectColor( event.target.style.backgroundColor );
   }
 
   render(){
