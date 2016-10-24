@@ -1,19 +1,20 @@
 import React from 'react';
 import * as firebase from 'firebase';
 import { Modal } from 'react-bootstrap';
+import _ from 'lodash';
 
 import styles from '.././main.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class ShareComponent extends React.Component {
   constructor(){
     super();
     this.state = {
         userToShareWith: '',
+        currentUsers: [],
         showModal: false
     }
 
-    this.handleClick = this.handleClick.bind( this );
+    this.handleShare = this.handleShare.bind( this );
     this.onUpdate = this.onUpdate.bind( this );
     this.open = this.open.bind( this );
     this.close = this.close.bind( this );
@@ -31,12 +32,39 @@ export default class ShareComponent extends React.Component {
     this.setState({ showModal: false });
   }
 
-  handleClick(){
-    var usersRef = firebase.database().ref( 'users/' );
+  componentWillReceiveProps() {
+    this.gridUserRef = firebase.database().ref( 'grids/' + this.props.gridID + '/users' );
+    this.usersRef = firebase.database().ref( 'users/' );
+
+    let currentUserArray = [];
+    let currentUserEmails = [];
+
+    // gets keys of current grid users
+    this.gridUserRef.once( "value", snapshot => {
+      snapshot.forEach( user => {
+        currentUserArray.push( user.key )
+      } );
+    } );
+
+    // matches keys to user list to retrieve emails
+    this.usersRef.once( "value", snapshot => {
+      snapshot.forEach( user => {
+        if ( _.includes( currentUserArray, user.key ) ){
+          currentUserEmails.push( user.child("email").val() )
+        }
+      } );
+    } );
+
+    this.setState({ currentUsers: currentUserEmails });
+  }
+
+  handleShare(){
+    let usersRef = firebase.database().ref( 'users/' );
+
     usersRef.orderByChild( 'email' ).equalTo( this.state.userToShareWith ).once( "child_added", snapshot => {
       if( snapshot.val() !== null ){
-        var gridUserRef = firebase.database().ref( 'grids/' + this.props.gridID + '/users' );
-        var newGridUserEntryRef = gridUserRef.child( snapshot.key );
+        let gridUserRef = firebase.database().ref( 'grids/' + this.props.gridID + '/users' );
+        let newGridUserEntryRef = gridUserRef.child( snapshot.key );
 
         newGridUserEntryRef.once( "value", newGridUserEntrySnapshot => {
             // only add if the user is not on the grid
@@ -45,10 +73,11 @@ export default class ShareComponent extends React.Component {
                 newGridUserEntryRef.set( true );
 
                 // update the user's list of grids
-                var userGridRef = firebase.database().ref( 'users/' + snapshot.key + '/grids' );
-                var newUserGridEntryRef = userGridRef.push();
+                let userGridRef = firebase.database().ref( 'users/' + snapshot.key + '/grids' );
+                let newUserGridEntryRef = userGridRef.push();
                 newUserGridEntryRef.set( this.props.gridID );
 
+                // closes modal window
                 this.setState({ showModal: false });
             }
             else{
@@ -70,18 +99,14 @@ export default class ShareComponent extends React.Component {
           </Modal.Header>
           <Modal.Body>
             <input type="text" className="form-control" placeholder="Enter an email address" onChange={ this.onUpdate }/>
-            <p className={ styles.sharedWith }>Currently shared with</p>
+            <p className={ styles.sharedWith }>Currently shared with { this.state.currentUsers.join(', ') }</p>
           </Modal.Body>
           <Modal.Footer>
               <button className={"btn btn-default " + styles.modalButton } onClick={ this.close }>Close</button>
-              <button className={"btn btn-primary " + styles.modalButton } onClick={ this.handleClick }>Share</button>
+              <button className={"btn btn-primary " + styles.modalButton } onClick={ this.handleShare }>Share</button>
           </Modal.Footer>
         </Modal>
       </div>
-        /* <div>
-            <input type="text"  className="form-control" placeholder="Type an email" onChange={ this.onUpdate }/>
-            <button className="btn btn-default" onClick={ this.handleClick }>Share</button>
-        </div>*/
     );
   }
 }

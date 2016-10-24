@@ -1,10 +1,9 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class NavBar extends React.Component {
   render(){
     return(
-      <nav className="navbar navbar-light bg-faded">
+      <nav className="navbar navbar-dark bg-info">
         <a className="navbar-brand" href="#">React Color</a>
         <ul className="nav navbar-nav">
           <li className="nav-item active">
