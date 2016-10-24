@@ -10,7 +10,7 @@ export default class Palette extends React.Component {
 
   handleClick( event ){
     // onUpdate updates the parent with the color to pass to the matrix cell
-    this.props.onUpdate( event.target.style.backgroundColor );
+    this.props.onSelectColor( event.target.style.backgroundColor );
   }
 
   render(){
@@ -31,9 +31,12 @@ export default class Palette extends React.Component {
       )
     }
 
+    const halfOfPaint = Math.ceil( paintPots.length / 2 );
+
     return(
-      <div className={ styles.palette }>
-        <div className="row">{ paintPots }</div>
+      <div className={ 'row ' + styles.palette }>
+        <div className="col-md-5">{ paintPots.splice( 0, halfOfPaint ) }</div>
+        <div className="col-md-5">{ paintPots.splice( 0, halfOfPaint ) }</div>
       </div>
     )
   }

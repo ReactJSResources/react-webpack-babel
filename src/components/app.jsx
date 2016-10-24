@@ -9,6 +9,7 @@ import GridSelector from './GridSelection.jsx';
 import ShareComponent from './shareComponent.jsx';
 import NavBar from './navbar.jsx';
 import DeleteGrid from './deleteGrid.jsx';
+import ResetGridColor from './resetGridColor.jsx';
 
 import styles from '../main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,7 +26,7 @@ export default class App extends React.Component {
       numRows: 0,
       numCols: 0
     }
-    this.onUpdate = this.onUpdate.bind(this);
+    this.onSelectColor = this.onSelectColor.bind(this);
     this.changeGrid = this.changeGrid.bind(this);
     this.getAvailableGrids = this.getAvailableGrids.bind(this);
   }
@@ -41,7 +42,7 @@ export default class App extends React.Component {
      });
   }
 
-  onUpdate( val ){
+  onSelectColor( val ){
     this.setState({ selectedColor: val });
   }
   changeGrid(newGrid) {
@@ -74,10 +75,13 @@ export default class App extends React.Component {
               />
             </div>
             <div className="col-sm-2">
-              <Randomize gridId={this.state.gridId} />
+              <Randomize gridId={this.state.gridId}/>
             </div>
             <div className="col-sm-2">
-              <button className="button" className="btn btn-default" onClick={this.resetGridColors}>Reset</button>
+              <ResetGridColor gridId={ this.state.gridId }
+                              numCols={ this.state.numCols }
+                              numRows={ this.state.numRows }
+              />
             </div>
           </div>
           <div className="row">
@@ -89,7 +93,7 @@ export default class App extends React.Component {
                 />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-2">
-                <Palette onUpdate={ this.onUpdate }/>
+                <Palette onSelectColor={ this.onSelectColor }/>
             </div>
             <div className="row">
               <div className="cols-sm-offset-3 col-sm-3">
