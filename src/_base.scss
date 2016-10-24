@@ -1,7 +1,6 @@
 .button {
     margin: 3px 2px;
 }
-
 .cell {
     border: 1px solid rgba(0, 0, 0, 0.3);
     display: inline-block;
@@ -9,7 +8,6 @@
     margin: 0 3px;
     width: 4vw;
 }
-
 .topBuffer {
   margin-top: 20px;
 }
@@ -19,7 +17,6 @@
     display: inline-block;
     margin: 20px auto;
 }
-
 .matrixColumn {
     display: inline-block;
     margin: 0;
@@ -44,11 +41,13 @@
 /* Modal Styles */
 .sharedWith {
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: 7px;
 }
-
 .modalButton {
     margin: 0 5px;
+}
+.userList {
+    color: $blue;
 }
 
 /* Media Queries */

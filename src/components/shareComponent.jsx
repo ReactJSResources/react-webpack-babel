@@ -32,8 +32,8 @@ export default class ShareComponent extends React.Component {
     this.setState({ showModal: false });
   }
 
-  componentWillReceiveProps() {
-    this.gridUserRef = firebase.database().ref( 'grids/' + this.props.gridID + '/users' );
+  componentWillReceiveProps( nextProps ) {
+    this.gridUserRef = firebase.database().ref( 'grids/' + nextProps.gridID + '/users' );
     this.usersRef = firebase.database().ref( 'users/' );
 
     let currentUserArray = [];
@@ -46,7 +46,7 @@ export default class ShareComponent extends React.Component {
       } );
     } );
 
-    // matches keys to user list to retrieve emails
+    // retrieve emails of grid users by matching user keys with user list
     this.usersRef.once( "value", snapshot => {
       snapshot.forEach( user => {
         if ( _.includes( currentUserArray, user.key ) ){
@@ -56,6 +56,9 @@ export default class ShareComponent extends React.Component {
     } );
 
     this.setState({ currentUsers: currentUserEmails });
+    if( this.state.currentUsers.length == 0 ){
+      currentUserEmails.push( ' no one.' );
+    } 
   }
 
   handleShare(){
@@ -99,7 +102,9 @@ export default class ShareComponent extends React.Component {
           </Modal.Header>
           <Modal.Body>
             <input type="text" className="form-control" placeholder="Enter an email address" onChange={ this.onUpdate }/>
-            <p className={ styles.sharedWith }>Currently shared with { this.state.currentUsers.join(', ') }</p>
+            <p className={ styles.sharedWith }>Currently shared with
+              <span className={ styles.userList }> { this.state.currentUsers.join(', ') }</span>
+            </p>
           </Modal.Body>
           <Modal.Footer>
               <button className={"btn btn-default " + styles.modalButton } onClick={ this.close }>Close</button>
