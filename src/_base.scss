@@ -37,6 +37,16 @@
     width: 4.5vw;
 }
 
+/* Modal Styles */
+.sharedWith {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.modalButton {
+    margin: 0 5px;
+}
+
 /* Media Queries */
 @media( max-width: 970px ){
     .cell {
