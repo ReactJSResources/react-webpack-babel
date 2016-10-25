@@ -18,29 +18,36 @@ export default class ShareComponent extends React.Component {
 
     handleClick() {
         var usersRef = firebase.database().ref('users/');
-        usersRef.orderByChild('email').equalTo(this.state.userToShareWith).once("child_added", snapshot => {
-            if(snapshot.val() !== null)
+        usersRef.orderByChild('email').equalTo(this.state.userToShareWith).once("child_added", userSnapshot => {
+            if(userSnapshot.val() !== null)
             {
-                var gridUserRef = firebase.database().ref('grids/' + this.props.gridID + '/users');
-                var newGridUserEntryRef = gridUserRef.child(snapshot.key);
+                var gridRef = firebase.database().ref('grids/' + this.props.gridID);
+                var newGridUserEntryRef = gridRef.child('users').child(userSnapshot.key);
 
-                newGridUserEntryRef.once("value", newGridUserEntrySnapshot => {
-                    //only add if the user is not on the grid
-                    if(newGridUserEntrySnapshot.val() === null)
+                gridRef.once('value', gridRefSnapshot => {
+                    //only add user to grid if the user is not on the grid
+                    if(gridRefSnapshot.child('users').child(userSnapshot.key).val() === null)
                     {
                         //update the grid's list of users
                         newGridUserEntryRef.set(true);
-
-                        //update the user's list of grids
-                        var userGridRef = firebase.database().ref('users/' + snapshot.key + '/grids');
-                        var newUserGridEntryRef = userGridRef.push();
-                        newUserGridEntryRef.set(this.props.gridID);
                     }
                     else
                     {
-                        console.log("The specified user already has access to this grid");
+                        console.log("The specified user already is already listed on this grid");
                     }
-                });
+
+                    //only add grid to user if the grid is not on the user
+                    if(userSnapshot.child('grids').child(this.props.gridID).val() === null)
+                    {
+                        //update the user's list of grids
+                        var newUserGridEntryRef = firebase.database().ref('users/' + userSnapshot.key + '/grids/' + this.props.gridID);
+                        newUserGridEntryRef.set(gridRefSnapshot.child('name').val());
+                    }
+                    else
+                    {
+                        console.log("The specified grid already is already listed on this user");
+                    }
+                }, error => { console.log(error) });
             }
         });
     }
