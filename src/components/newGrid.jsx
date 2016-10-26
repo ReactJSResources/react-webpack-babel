@@ -27,7 +27,6 @@ export default class NewGrid extends React.Component {
   }
 
   handleClick(event){
-
     manageLogin(this.createGrid);
   }
 
@@ -63,7 +62,6 @@ export default class NewGrid extends React.Component {
     );
   }
 }
-
 
  NewGrid.propTypes = {
    changeGrid: React.PropTypes.func
