@@ -41,26 +41,22 @@ export default class ShareComponent extends React.Component {
     let currentUserEmails = [];
 
     // gets keys of current grid users
-    this.gridUserRef.once( "value", snapshot => {
+    this.gridUserRef.once( 'value', snapshot => {
       snapshot.forEach( user => {
         currentUserArray.push( user.key )
       } );
     } );
 
     // retrieve emails of grid users by matching user keys with user list
-    this.usersRef.once( "value", snapshot => {
+    this.usersRef.once( 'value', snapshot => {
       snapshot.forEach( user => {
         if( _.includes( currentUserArray, user.key ) ){
-          currentUserEmails.push( user.child("email").val() )
+          currentUserEmails.push( user.child( 'email' ).val() )
         }
       } );
     } );
 
     this.setState({ currentUsers: currentUserEmails });
-  }
-
-  componentDidMount() {
-      this.getUserEmails( this.props.gridId );
   }
 
   componentWillReceiveProps( nextProps ){
@@ -70,12 +66,12 @@ export default class ShareComponent extends React.Component {
   }
 
   handleShare(){
-    let usersRef = firebase.database().ref( 'users/' );
+    const usersRef = firebase.database().ref( 'users/' );
 
     usersRef.orderByChild( 'email' ).equalTo( this.state.userToShareWith ).once( "child_added", userSnapshot => {
       if( userSnapshot.val() !== null ){
-        let gridRef = firebase.database().ref( 'grids/' + this.props.gridId );
-        let newGridUserEntryRef = gridRef.child( 'users' ).child( userSnapshot.key );
+        const gridRef = firebase.database().ref( 'grids/' + this.props.gridId );
+        const newGridUserEntryRef = gridRef.child( 'users' ).child( userSnapshot.key );
 
         gridRef.once( 'value', gridRefSnapshot => {
             // only add user to grid if the user is not on the grid
@@ -83,8 +79,9 @@ export default class ShareComponent extends React.Component {
                 // update the grid's list of users
                 newGridUserEntryRef.set( true );
 
-                // closes modal window
+                // closes modal window & updates user list
                 this.setState({ showModal: false });
+                this.getUserEmails( this.props.gridId );
             }
             else{
                 console.log( "The specified user already is already listed on this grid" );
@@ -93,7 +90,7 @@ export default class ShareComponent extends React.Component {
             // only add grid to user if the grid is not on the user
             if( userSnapshot.child( 'grids' ).child( this.props.gridId ).val() === null ){
                 // update the user's list of grids
-                var newUserGridEntryRef = firebase.database().ref( 'users/' + userSnapshot.key + '/grids/' + this.props.gridId );
+                const newUserGridEntryRef = firebase.database().ref( 'users/' + userSnapshot.key + '/grids/' + this.props.gridId );
                 newUserGridEntryRef.set( gridRefSnapshot.child( 'name' ).val() );
             }
             else{
@@ -127,8 +124,4 @@ export default class ShareComponent extends React.Component {
       </div>
     );
   }
-}
-
-ShareComponent.propTypes = {
-    gridId: React.PropTypes.string,
 }

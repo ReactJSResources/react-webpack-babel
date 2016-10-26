@@ -82,7 +82,7 @@ export default class App extends React.Component {
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-10">
                 <Matrix color={ this.state.selectedColor }
-                        gridID={ this.state.gridId }
+                        gridId={ this.state.gridId }
                         numCols={this.state.numCols }
                         numRows={ this.state.numRows }
                 />
@@ -94,7 +94,7 @@ export default class App extends React.Component {
 
           <div className="row">
             <div className="cols-md-offset-3 col-md-2 col-sm-4">
-              <ShareComponent gridID={ this.state.gridId }/>
+              <ShareComponent gridId={ this.state.gridId }/>
             </div>
             <div className="cols-md-offset-3 col-md-2 col-sm-4">
               <DeleteGrid/>
