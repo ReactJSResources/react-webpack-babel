@@ -4,9 +4,9 @@
 .cell {
     border: 1px solid rgba(0, 0, 0, 0.3);
     display: inline-block;
-    height: 4vw;
-    margin: 0 3px;
-    width: 4vw;
+    height: 2.6vw;
+    margin: 0;
+    width: 2.6vw;
 }
 .topBuffer {
   margin-top: 20px;
@@ -19,8 +19,7 @@
 }
 .matrixColumn {
     display: inline-block;
-    margin: 0;
-    padding: 0;
+    font-size: 0;
 }
 
 /* Palette Styles */
@@ -53,8 +52,8 @@
 /* Media Queries */
 @media( max-width: 970px ){
     .cell {
-        height: 30px;
-        width: 30px;
+        height: 20px;
+        width: 20px;
     }
     .palette {
         margin: 10px auto;
