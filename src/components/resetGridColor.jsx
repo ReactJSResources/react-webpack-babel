@@ -1,6 +1,8 @@
 import React from 'react';
 import * as firebase from 'firebase';
 
+import styles from '.././main.scss';
+
 export default class ResetGridColor extends React.Component {
   constructor(){
     super();
@@ -8,7 +10,7 @@ export default class ResetGridColor extends React.Component {
   }
 
   handleClick( event ){
-    const gridRef = firebase.database().ref('grids/' + this.props.gridId + '/');
+    const gridRef = firebase.database().ref('grids/' + this.props.gridId);
 
     const numRows = this.props.numRows;
     const numCols = this.props.numCols;
@@ -25,7 +27,7 @@ export default class ResetGridColor extends React.Component {
 
   render(){
     return(
-      <button className="button" className="btn btn-default" onClick={ this.handleClick }>Reset</button>
+      <button className={ "btn btn-danger " + styles.button } onClick={ this.handleClick }>Reset</button>
     )
   }
 }

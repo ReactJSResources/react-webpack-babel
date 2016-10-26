@@ -13,13 +13,13 @@ export default class Randomize extends React.Component {
     const rows = parseInt(this.props.numRows)
     const columns = parseInt(this.props.numCols);
     const cellsToChange = Math.floor(Math.random() * rows * columns);
-    const colorStyleSheet = document.styleSheets[0].cssRules;
+    const colorStyleSheet = document.styleSheets[1].cssRules;
 
     for( var i = 0; i < cellsToChange; i++ ){
       let randomRow = 'r' + Math.floor(Math.random() * rows) + '/';
       let randomColumn = 'c' + Math.floor(Math.random() * columns) + '/';
 
-      let colorIndex = Math.floor(Math.random() * 5);
+      let colorIndex = Math.floor(Math.random() * colorStyleSheet.length);
       let randomColorStr = colorStyleSheet[colorIndex].cssText.toString();
 
       const cellRef = firebase.database().ref('grids/' + gridId + randomRow + randomColumn);
