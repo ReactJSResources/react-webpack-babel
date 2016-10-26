@@ -63,6 +63,6 @@ export default class Matrix extends React.Component {
 Matrix.propTypes = {
     gridID: React.PropTypes.string,
     color: React.PropTypes.string,
-    numCols: React.PropTypes.string,
-    numRows: React.PropTypes.string
+    numCols: React.PropTypes.number,
+    numRows: React.PropTypes.number
 }

@@ -89,7 +89,7 @@ export default class App extends React.Component {
                 <Matrix color={ this.state.selectedColor }
                         gridID={ this.state.gridId }
                         numCols={this.state.numCols }
-                        numRows={ this.state.numRows }
+                        numRows={this.state.numRows }
                 />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-2">
