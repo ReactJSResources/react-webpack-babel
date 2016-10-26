@@ -24,7 +24,6 @@ export default class MatrixSize extends React.Component {
   }
   componentDidMount(){
     this.setState({gridId: this.props.gridId});
-    console.log(this)
   }
 
   render() {
