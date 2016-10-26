@@ -34,22 +34,22 @@ export default class ShareComponent extends React.Component {
   }
 
   getUserEmails( newestGridId ){
-    this.gridUserRef = firebase.database().ref( 'grids/' + newestGridId + '/users' );
-    this.usersRef = firebase.database().ref( 'users/' );
+    const gridRef = firebase.database().ref( 'grids/' + newestGridId + '/users' );
+    const usersRef = firebase.database().ref( 'users/' );
 
     let currentUserArray = [];
     let currentUserEmails = [];
 
     // gets keys of current grid users
-    this.gridUserRef.once( 'value', snapshot => {
-      snapshot.forEach( user => {
+    gridRef.once( 'value', gridRefSnapshot => {
+      gridRefSnapshot.forEach( user => {
         currentUserArray.push( user.key )
       } );
     } );
 
     // retrieve emails of grid users by matching user keys with user list
-    this.usersRef.once( 'value', snapshot => {
-      snapshot.forEach( user => {
+    usersRef.once( 'value', userSnapshot => {
+      userSnapshot.forEach( user => {
         if( _.includes( currentUserArray, user.key ) ){
           currentUserEmails.push( user.child( 'email' ).val() )
         }
