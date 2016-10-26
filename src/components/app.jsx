@@ -10,6 +10,7 @@ import ShareComponent from './shareComponent.jsx';
 import NavBar from './navbar.jsx';
 import DeleteGrid from './deleteGrid.jsx';
 import ResetGridColor from './resetGridColor.jsx';
+import NewGrid from './newGrid.jsx';
 
 import styles from '../main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -65,7 +66,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar/>
+        <NavBar changeGrid={this.changeGrid}/>
         <div className="container">
           <div className="row">
             <div className={styles.topBuffer}></div>
@@ -75,7 +76,10 @@ export default class App extends React.Component {
               />
             </div>
             <div className="col-sm-2">
-              <Randomize gridId={this.state.gridId}/>
+              <Randomize gridId={this.state.gridId}
+                        numCols={this.state.numCols}
+                        numRows={this.state.numRows} />
+
             </div>
             <div className="col-sm-2">
               <ResetGridColor gridId={ this.state.gridId }

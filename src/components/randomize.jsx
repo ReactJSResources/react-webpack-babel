@@ -10,8 +10,8 @@ export default class Randomize extends React.Component {
 
   handleClick() {
     const gridId = this.props.gridId + '/';
-    const rows = matrixID[0];
-    const columns = matrixID[1];
+    const rows = parseInt(this.props.numRows)
+    const columns = parseInt(this.props.numCols);
     const cellsToChange = Math.floor(Math.random() * rows * columns);
     const colorStyleSheet = document.styleSheets[0].cssRules;
 
