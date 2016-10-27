@@ -34,29 +34,32 @@ export default class ShareComponent extends React.Component {
   }
 
   getUserEmails( newestGridId ){
-    const gridRef = firebase.database().ref( 'grids/' + newestGridId + '/users' );
-    const usersRef = firebase.database().ref( 'users/' );
+      if(newestGridId !== null)
+      {
+        const gridRef = firebase.database().ref( 'grids/' + newestGridId + '/users' );
+        const usersRef = firebase.database().ref( 'users/' );
 
-    let currentUserArray = [];
-    let currentUserEmails = [];
+        let currentUserArray = [];
+        let currentUserEmails = [];
 
-    // gets keys of current grid users
-    gridRef.once( 'value', gridRefSnapshot => {
-      gridRefSnapshot.forEach( user => {
-        currentUserArray.push( user.key )
-      } );
-    } );
+        // gets keys of current grid users
+        gridRef.once( 'value', gridRefSnapshot => {
+          gridRefSnapshot.forEach( user => {
+            currentUserArray.push( user.key )
+          } );
+        } );
 
-    // retrieve emails of grid users by matching user keys with user list
-    usersRef.once( 'value', userSnapshot => {
-      userSnapshot.forEach( user => {
-        if( _.includes( currentUserArray, user.key ) ){
-          currentUserEmails.push( user.child( 'email' ).val() )
-        }
-      } );
-    } );
+        // retrieve emails of grid users by matching user keys with user list
+        usersRef.once( 'value', userSnapshot => {
+          userSnapshot.forEach( user => {
+            if( _.includes( currentUserArray, user.key ) ){
+              currentUserEmails.push( user.child( 'email' ).val() )
+            }
+          } );
+        } );
 
-    this.setState({ currentUsers: currentUserEmails });
+        this.setState({ currentUsers: currentUserEmails });
+    }
   }
 
   componentWillReceiveProps( nextProps ){
