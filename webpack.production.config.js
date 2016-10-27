@@ -10,19 +10,30 @@ var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 loaders.push({
     test: /[\/\\]src[\/\\].*\.css/,
     exclude: /(node_modules|bower_components|public)/,
-    loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
+    loaders: [
+        'style?sourceMap',
+        'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+    ]
 });
 
 // local scss modules
 loaders.push({
     test: /[\/\\]src[\/\\].*\.scss/,
     exclude: /(node_modules|bower_components|public)/,
-    loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'sass')
+    loaders: [
+        'style?sourceMap',
+        'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+        'sass'
+    ]
 });
-// global css files
+
+// global css
 loaders.push({
     test: /[\/\\](node_modules|global)[\/\\].*\.css$/,
-    loader: ExtractTextPlugin.extract('style', 'css')
+    loaders: [
+        'style?sourceMap',
+        'css'
+    ]
 });
 
 module.exports = {
@@ -60,7 +71,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: './src/template.html',
-            title: 'Webpack App'
+            title: 'React Color'
         }),
         new webpack.optimize.DedupePlugin()
     ]
