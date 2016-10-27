@@ -99,7 +99,7 @@ export default class App extends React.Component {
               <ShareComponent gridId={ this.state.gridId }/>
             </div>
             <div className="cols-md-offset-3 col-md-2 col-sm-4">
-              <DeleteGrid/>
+              <DeleteGrid gridId={this.state.gridId} gridRemoval={this.changeGrid}/>
               <ResetGridColor gridId={ this.state.gridId }
                               numCols={ this.state.numCols }
                               numRows={ this.state.numRows }
