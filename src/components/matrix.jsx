@@ -18,15 +18,17 @@ export default class Matrix extends React.Component {
  }
 
   componentWillReceiveProps(nextProps) {
-      if (this.props.gridID !== nextProps.gridID) {
+      if (this.props.gridId !== nextProps.gridId
+          || this.props.numCols !== nextProps.numCols
+          || this.props.numRows !== nextProps.numRows) {
           this.updateGridSize(nextProps);
       }
   }
 
   updateGridSize(nextProps) {
      this.setState({numRows: 0, numCols: 0});
-     this.rowRef = firebase.database().ref('grids/' + nextProps.gridID + '/numRows');
-     this.colRef = firebase.database().ref('grids/' + nextProps.gridID + '/numCols');
+     this.rowRef = firebase.database().ref('grids/' + nextProps.gridId + '/numRows');
+     this.colRef = firebase.database().ref('grids/' + nextProps.gridId + '/numCols');
      try {
         this.rowRef.once('value', snap => {
             if (snap.val() !== null) {
@@ -54,7 +56,7 @@ export default class Matrix extends React.Component {
       let column = []
       for(var j = 0;j < this.state.numRows;j++){
         column.push(<Cell row={j} col={i} key={'r' + j + 'c' + i}
-                     gridID={this.props.gridID} color={this.props.color} />)
+                     gridId={this.props.gridId} color={this.props.color} />)
       }
       matrix.push(<div key={i} className={styles.matrixColumn}>{column}</div>)
     }
@@ -65,8 +67,8 @@ export default class Matrix extends React.Component {
 }
 
 Matrix.propTypes = {
-    gridID: React.PropTypes.string,
+    gridId: React.PropTypes.string,
     color: React.PropTypes.string,
-    numCols: React.PropTypes.string,
-    numRows: React.PropTypes.string
+    numCols: React.PropTypes.number,
+    numRows: React.PropTypes.number
 }

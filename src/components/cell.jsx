@@ -13,7 +13,7 @@ export default class Cell extends React.Component {
   }
 
   componentDidMount() {
-      this.cellRef = firebase.database().ref('grids/' + this.props.gridID
+      this.cellRef = firebase.database().ref('grids/' + this.props.gridId
                                              + '/r' + this.props.row
                                              + '/c' + this.props.col);
       this.cellRef.on('value', snap => {
@@ -48,7 +48,7 @@ export default class Cell extends React.Component {
 Cell.propTypes = {
     row: React.PropTypes.number,
     col: React.PropTypes.number,
-    gridID: React.PropTypes.string,
+    gridId: React.PropTypes.string,
     color: React.PropTypes.string
 
 }

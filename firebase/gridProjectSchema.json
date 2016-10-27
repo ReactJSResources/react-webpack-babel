@@ -1,22 +1,22 @@
 {
-    "grids" : {
-        "grid0" : {
-            "numCols" : 3,
-            "numRows" : 3,
-            "users" : {
-                "sa" : true
-            },
-            "owner" : "sa",
-            "r0" : {
-                "c0" : "rgb(0, 0, 0)"
-            }
+    "grids" : [ {
+        "name" : "grid0",
+        "numCols" : 3,
+        "numRows" : 3,
+        "users" : {
+            "sa" : true
+        },
+        "owner" : "sa",
+        "r0" : {
+            "c0" : "rgb(0, 0, 0)"
         }
-    },
+    } ],
     "users" : {
         "sa" : {
             "admin" : true,
             "email": "test@test.com",
-            "grids" : [ "grid0" ]
+            "grids" : {
+                "gridHash": "grid0"
         }
     }
 }

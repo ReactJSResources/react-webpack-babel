@@ -1,6 +1,6 @@
 import React from 'react';
 import * as firebase from 'firebase';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import styles from '../main.scss';
 
 import {manageLogin} from '../util/login.js'
 
@@ -11,7 +11,7 @@ export default class DeleteGrid extends React.Component {
     this.deleteUserGrid = this.deleteUserGrid.bind( this );
   }
 
-  handleClick(event){
+  handleClick(){
     manageLogin(this.deleteUserGrid);
   }
 

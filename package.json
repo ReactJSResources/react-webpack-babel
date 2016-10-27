@@ -18,8 +18,10 @@
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.3",
     "firebase": "^3.4.1",
+    "lodash": "^4.16.4",
     "node-sass": "^3.9.2",
     "react": "15.3.0",
+    "react-bootstrap": "^0.30.5",
     "react-dom": "15.3.0",
     "sass-loader": "^4.0.1"
   },

@@ -9,6 +9,8 @@ import GridSelector from './GridSelection.jsx';
 import ShareComponent from './shareComponent.jsx';
 import NavBar from './navbar.jsx';
 import DeleteGrid from './deleteGrid.jsx';
+import ResetGridColor from './resetGridColor.jsx';
+import NewGrid from './newGrid.jsx';
 
 import styles from '../main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,7 +27,7 @@ export default class App extends React.Component {
       numRows: 0,
       numCols: 0
     }
-    this.onUpdate = this.onUpdate.bind(this);
+    this.onSelectColor = this.onSelectColor.bind(this);
     this.changeGrid = this.changeGrid.bind(this);
     this.getAvailableGrids = this.getAvailableGrids.bind(this);
   }
@@ -41,7 +43,7 @@ export default class App extends React.Component {
      });
   }
 
-  onUpdate( val ){
+  onSelectColor( val ){
     this.setState({ selectedColor: val });
   }
   changeGrid(newGrid) {
@@ -62,50 +64,53 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.gridId);
     return (
       <div>
-        <NavBar/>
+        <NavBar changeGrid={this.changeGrid}/>
         <div className="container">
-          <div className="row">
-            <div className={styles.topBuffer}></div>
+          <div className={ "row " + styles.topBuffer }>
             <div className="col-sm-2">
-              <GridSelector gridSelector={this.changeGrid}
-                            possibleGrids={this.state.possibleGrids}
+              <GridSelector gridSelector={ this.changeGrid }
+                            possibleGrids={ this.state.possibleGrids }
               />
             </div>
             <div className="col-sm-2">
-              <Randomize gridId={this.state.gridId}/>
+              <Randomize gridId={this.state.gridId}
+                        numCols={this.state.numCols}
+                        numRows={this.state.numRows} />
             </div>
-            <div className="col-sm-2">
-              <button className="button" className="btn btn-default" onClick={this.resetGridColors}>Reset</button>
-            </div>
-          </div>
+          </div> {/* row */}
+
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-10">
                 <Matrix color={ this.state.selectedColor }
-                        gridID={ this.state.gridId }
+                        gridId={ this.state.gridId }
                         numCols={this.state.numCols }
-                        numRows={ this.state.numRows }
+                        numRows={this.state.numRows }
                 />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-2">
-                <Palette onUpdate={ this.onUpdate }/>
-            </div>
-            <div className="row">
-              <div className="cols-sm-offset-3 col-sm-3">
-                <ShareComponent gridID={ this.state.gridId }/>
-              </div>
-              <div className="cols-sm-offset-2 col-sm-2">
-                <MatrixSize gridId={ this.state.gridId } updateGrid={this.changeGrid}/>
-              </div>
-              <div className="col-sm-5">
-               <DeleteGrid gridId={ this.state.gridId }
-                           gridRemoval={this.changeGrid}/>
-              </div>
+              <Palette onSelectColor={ this.onSelectColor }/>
             </div>
           </div>
-        </div>
+
+          <div className="row">
+            <div className="cols-md-offset-3 col-md-2 col-sm-4">
+              <ShareComponent gridId={ this.state.gridId }/>
+            </div>
+            <div className="cols-md-offset-3 col-md-2 col-sm-4">
+              <DeleteGrid gridId={this.state.gridId} gridRemoval={this.changeGrid}/>
+              <ResetGridColor gridId={ this.state.gridId }
+                              numCols={ this.state.numCols }
+                              numRows={ this.state.numRows }
+              />
+            </div>
+            <div className="col-md-3 col-sm-4">
+              <MatrixSize gridId={ this.state.gridId } updateGrid={ this.changeGrid }/>
+            </div>
+          </div> {/* row */}
+
+        </div> {/* container */}
       </div>
     )
   }
