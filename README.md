@@ -35,7 +35,7 @@ Try this is a simple [React](https://facebook.github.io/react/), [Webpack](http:
 
 Open the web browser to `http://localhost:8888/`
 
-### To build production package
+### To build the production package
 
 ```
 > $ npm run build
@@ -43,7 +43,7 @@ Open the web browser to `http://localhost:8888/`
 
 ### Nginx Config
 
-Here is the suggested Nginx config:
+Here is an example Nginx config:
 ```
 server {
 	# ... root and other options
@@ -51,6 +51,10 @@ server {
 	gzip on;
 	gzip_http_version 1.1;
 	gzip_types text/plain text/css text/xml application/javascript image/svg+xml;
+
+	location / {
+		try_files $uri $uri/ /index.html;
+	}
 
 	location ~ \.html?$ {
 		expires 1d;
@@ -80,7 +84,7 @@ To do the actual linting, run:
 
 ### Notes on importing css styles
 * styles having /src/ in their absolute path are considered part of the application and exported as local css modules.
-* styles having /node_modules|global/ in their absolute path are considered global styles used by many components and are included in the css bundle directly.
+* other styles are considered global styles used by many components and are included in the css bundle directly.
 
 ### Contribute
-Please contribute to the project if you think this can be done better in anyway even for this README :)
+Please contribute to the project if you know how to make it better, including this README :)

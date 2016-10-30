@@ -2,16 +2,7 @@ module.exports = [
 	{
 		test: /\.jsx?$/,
 		exclude: /(node_modules|bower_components|public)/,
-		loaders: ['react-hot-loader/webpack']
-	},
-	{
-		test: /\.jsx?$/,
-		exclude: /(node_modules|bower_components|public)/,
-		loader: 'babel',
-		query: {
-		  presets: ['es2015', 'react'],
-		  plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties'],
-		}
+		loader: "babel"
 	},
 	{
 		test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
