@@ -64,8 +64,7 @@ export default class NewGrid extends React.Component {
   render(){
     return(
       <div className="col-xs-12">
-        <button className="btn btn-primary" onClick={this.open}>New Grid</button>
-        
+        <button type="button" className="btn btn-info" onClick={this.open}>New Grid</button>
         <Modal show={ this.state.showModal } onHide={ this.close }>
           <Modal.Header closeButton>
             <Modal.Title>Create New Grid</Modal.Title>
