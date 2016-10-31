@@ -39,6 +39,7 @@ export default class NewGrid extends React.Component {
   }
 
   handleClick(event){
+    this.state.showModal = false;
     manageLogin(this.createGrid);
   }
 
