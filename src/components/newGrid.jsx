@@ -2,16 +2,28 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as firebase from 'firebase';
 import {manageLogin} from '../util/login.js'
+import { Modal } from 'react-bootstrap';
+import styles from '.././main.scss';
 
 export default class NewGrid extends React.Component {
   constructor(){
     super();
-    this.state = {numRows: '',numCols: '', gridName: ''}
+    this.state = {numRows: '',numCols: '', gridName: '', showModal: false}
     this.createGrid = this.createGrid.bind(this);
     this.setRows = this.setRows.bind(this);
     this.setCols = this.setCols.bind(this);
     this.setName = this.setName.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.open = this.open.bind(this);
+    this.close = this.close.bind(this);
+  }
+
+  open(){
+    this.setState({ showModal: true });
+  }
+
+  close(){
+    this.setState({ showModal: false });
   }
 
   setRows(event) {
@@ -51,13 +63,25 @@ export default class NewGrid extends React.Component {
   render(){
     return(
       <div className="col-xs-12">
-        <button type="Submit" onClick={this.handleClick}>Create New Grid</button>
-        Rows: <input type="text" value={this.state.numRows}
-                             onChange={this.setRows} />
-        Columns:<input type="text" value={this.state.numCols} 
-                             onChange={this.setCols} />
-        Grid Name:<input type="text" value={this.state.gridName} 
-                             onChange={this.setName} />
+        <button className="btn btn-primary" onClick={this.open}>New Grid</button>
+        
+        <Modal show={ this.state.showModal } onHide={ this.close }>
+          <Modal.Header closeButton>
+            <Modal.Title>Create New Grid</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p><input type="text" className="form-control" placeholder="Name for new grid" 
+                                          onChange={this.setName} /></p>
+            <p><input type="text" className="form-control" placeholder="Number of rows"
+                                         onChange={this.setRows} /></p>
+            <p><input type="text" className="form-control" placeholder="Number of columns" 
+                                          onChange={this.setCols} /></p>
+          </Modal.Body>
+          <Modal.Footer>
+              <button className={ "btn btn-default " + styles.modalButton } onClick={ this.close }>Close</button>
+              <button className={ "btn btn-primary " + styles.modalButton } onClick={ this.handleClick }>Create</button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }
