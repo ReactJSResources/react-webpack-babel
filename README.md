@@ -18,19 +18,19 @@ Try this is a simple [React](https://facebook.github.io/react/), [Webpack](http:
 * Fork and clone the project:
 
 ```
-> $ git clone THIS_REPO_URL
+git clone https://github.com/alicoding/react-webpack-babel.git
 ```
 
 * Then install the dependencies:
 
 ```
-> $ npm install
+npm install
 ```
 
 * Run development server:
 
 ```
-> $ npm start
+npm start
 ```
 
 Open the web browser to `http://localhost:8888/`
@@ -38,7 +38,7 @@ Open the web browser to `http://localhost:8888/`
 ### To build the production package
 
 ```
-> $ npm run build
+npm run build
 ```
 
 ### Nginx Config
@@ -73,13 +73,13 @@ There is a .eslint.yaml config for eslint ready with React plugin.
 To use it, you need to install additional dependencies though:
 
 ```
-> npm install --save-dev eslint eslint-plugin-react
+npm install --save-dev eslint eslint-plugin-react
 ```
 
 To do the actual linting, run:
 
 ```
-> npm run lint
+npm run lint
 ```
 
 ### Notes on importing css styles
