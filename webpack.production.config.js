@@ -1,3 +1,4 @@
+
 var webpack = require('webpack');
 var path = require('path');
 var loaders = require('./webpack.loaders');
@@ -7,8 +8,16 @@ var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 
 // local css modules
 loaders.push({
-	test: /[\/\\]src[\/\\].*\.css$/,
+	test: /[\/\\]src[\/\\].*\.css/,
+	exclude: /(node_modules|bower_components|public)/,
 	loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
+});
+
+// local scss modules
+loaders.push({
+	test: /[\/\\]src[\/\\].*\.scss/,
+	exclude: /(node_modules|bower_components|public)/,
+	loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
 });
 // global css files
 loaders.push({
@@ -52,6 +61,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/template.html',
 			title: 'Webpack App'
-		})
+		}),
+		new webpack.optimize.DedupePlugin()
 	]
 };
