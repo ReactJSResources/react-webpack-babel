@@ -17,8 +17,8 @@
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
     "node-sass": "^3.10.1",
-    "react": "15.3.2",
-    "react-dom": "15.3.2",
+    "react": "15.4.1",
+    "react-dom": "15.4.1",
     "sass-loader": "^4.0.2"
   },
   "devDependencies": {
@@ -30,7 +30,7 @@
     "babel-preset-es2015": "6.16.0",
     "babel-preset-react": "6.16.0",
     "babel-runtime": "^6.11.6",
-    "css-loader": "0.25.0",
+    "css-loader": "0.26.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "0.9.0",
     "html-webpack-plugin": "^2.22.0",
