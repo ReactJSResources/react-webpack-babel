@@ -46,7 +46,7 @@ module.exports = {
 	],
 	devtool: process.env.WEBPACK_DEVTOOL || 'eval-source-map',
 	output: {
-		publicPath: '/',
+		publicPath: './',
 		path: path.join(__dirname, 'public'),
 		filename: 'bundle.js'
 	},
