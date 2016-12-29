@@ -17,7 +17,7 @@
   "license": "MIT",
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
-    "node-sass": "^3.13.0",
+    "node-sass": "^3.13.1",
     "react": "15.4.1",
     "react-dom": "15.4.1",
     "sass-loader": "^4.0.2"
