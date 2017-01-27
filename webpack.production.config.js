@@ -47,6 +47,12 @@ module.exports = {
 	    new ExtractTextPlugin("stlye.css", {
 		      allChunks: true
 		}),
-		new HtmlWebpackPlugin()
+		new HtmlWebpackPlugin({
+			template: './src/template.html',
+			files: {
+				css: ['style.css'],
+				js: [ "bundle.js"],
+			}
+		})
 	]
 };
