@@ -44,7 +44,7 @@ module.exports = {
 		}),
 		new webpack.optimize.OccurenceOrderPlugin(),
 		new webpack.optimize.DedupePlugin(),
-	    new ExtractTextPlugin("stlye.css", {
+	    new ExtractTextPlugin("style.css", {
 		      allChunks: true
 		}),
 		new HtmlWebpackPlugin({
