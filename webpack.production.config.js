@@ -1,33 +1,20 @@
-
 var webpack = require('webpack');
 var path = require('path');
 var loaders = require('./webpack.loaders');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-// local css modules
-loaders.push({
-	test: /[\/\\]src[\/\\].*\.css/,
-	exclude: /(node_modules|bower_components|public\/)/,
-	loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
-});
-
-// local scss modules
-loaders.push({
-	test: /[\/\\]src[\/\\].*\.scss/,
-	exclude: /(node_modules|bower_components|public\/)/,
-	loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
-});
-// global css files
-loaders.push({
-	test: /[\/\\](node_modules|global)[\/\\].*\.css$/,
-	loader: ExtractTextPlugin.extract('style', 'css')
+loaders.push({ 
+	test: /\.scss$/, 
+	loader: ExtractTextPlugin.extract('style', 'css?sourceMap&localIdentName=[local]___[hash:base64:5]!sass?outputStyle=expanded'),
+	exclude: ['node_modules']
 });
 
 module.exports = {
 	entry: [
-		'./src/index.jsx'
+		'./src/index.jsx',
+		'./styles/index.scss'
 	],
 	output: {
 		publicPath: '/',
@@ -56,13 +43,16 @@ module.exports = {
 			}
 		}),
 		new webpack.optimize.OccurenceOrderPlugin(),
-		new ExtractTextPlugin('[contenthash].css', {
-			allChunks: true
+		new webpack.optimize.DedupePlugin(),
+	    new ExtractTextPlugin("style.css", {
+		      allChunks: true
 		}),
 		new HtmlWebpackPlugin({
 			template: './src/template.html',
-			title: 'Webpack App'
-		}),
-		new webpack.optimize.DedupePlugin()
+			files: {
+				css: ['style.css'],
+				js: [ "bundle.js"],
+			}
+		})
 	]
 };

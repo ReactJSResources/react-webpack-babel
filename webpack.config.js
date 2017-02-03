@@ -4,45 +4,22 @@ var path = require('path');
 var loaders = require('./webpack.loaders');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var DashboardPlugin = require('webpack-dashboard/plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const HOST = process.env.HOST || "127.0.0.1";
 const PORT = process.env.PORT || "8888";
 
-// global css
-loaders.push({
-	test: /\.css$/,
-	exclude: /[\/\\]src[\/\\]/,
-	loaders: [
-		'style?sourceMap',
-		'css'
-	]
-});
-// local scss modules
-loaders.push({
-	test: /\.scss$/,
-	exclude: /[\/\\](node_modules|bower_components|public\/)[\/\\]/,
-	loaders: [
-		'style?sourceMap',
-		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]&sourceMap',
-		'postcss',
-		'sass'
-	]
-});
-
-// local css modules
-loaders.push({
-	test: /\.css$/,
-	exclude: /[\/\\](node_modules|bower_components|public\/)[\/\\]/,
-	loaders: [
-		'style?sourceMap',
-		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]&sourceMap'
-	]
+loaders.push({ 
+	test: /\.scss$/, 
+	loader: ExtractTextPlugin.extract('style', 'css?sourceMap&localIdentName=[local]___[hash:base64:5]!sass?outputStyle=expanded'),
+	exclude: ['node_modules']
 });
 
 module.exports = {
 	entry: [
 		'react-hot-loader/patch',
-		'./src/index.jsx' // your app's entry point
+		'./src/index.jsx', // your app's entry point
+		'./styles/index.scss'
 	],
 	devtool: process.env.WEBPACK_DEVTOOL || 'eval-source-map',
 	output: {
@@ -72,9 +49,16 @@ module.exports = {
 	plugins: [
 		new webpack.NoErrorsPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
+	    new ExtractTextPlugin("style.css", {
+		      allChunks: true
+		}),
 		new DashboardPlugin(),
 		new HtmlWebpackPlugin({
-			template: './src/template.html'
+			template: './src/template.html',
+			files: {
+				css: ['style.css'],
+				js: [ "bundle.js"],
+			}
 		}),
 	]
 };
