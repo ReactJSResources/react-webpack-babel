@@ -33,7 +33,7 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx']
+		extensions: ['.js', '.jsx']
 	},
 	module: {
 		loaders
@@ -52,10 +52,11 @@ module.exports = {
 		host: HOST
 	},
 	plugins: [
-		new webpack.NoErrorsPlugin(),
+		new webpack.NoEmitOnErrorsPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
-	    new ExtractTextPlugin("style.css", {
-		      allChunks: true
+		new ExtractTextPlugin({
+				filename: 'style.css',
+				allChunks: true
 		}),
 		new DashboardPlugin(),
 		new HtmlWebpackPlugin({
