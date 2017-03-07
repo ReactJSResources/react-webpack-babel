@@ -17,7 +17,7 @@ module.exports = {
 		'./styles/index.scss'
 	],
 	output: {
-		publicPath: '/',
+		publicPath: './',		
 		path: path.join(__dirname, 'public'),
 		filename: '[chunkhash].js'
 	},
@@ -51,7 +51,7 @@ module.exports = {
 			template: './src/template.html',
 			files: {
 				css: ['style.css'],
-				js: [ "bundle.js"],
+				js: ['bundle.js'],
 			}
 		})
 	]
