@@ -10,7 +10,7 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 module.exports = {
-	plugins: [
-		require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS })
-	]
+  plugins: [
+    require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS })
+  ]
 }
