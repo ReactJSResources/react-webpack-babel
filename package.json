@@ -1,13 +1,14 @@
 {
   "name": "react-webpack-babel",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React Webpack Babel Starter Kit",
   "main": "''",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "webpack-dev-server --progress --profile --colors",
     "lint": "eslint --ext js --ext jsx src || exit 0",
-    "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors"
+    "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors",
+    "test": "export NODE_ENV=test && jest"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^7.1",
     "babel-plugin-transform-class-properties": "^6.22.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
@@ -32,16 +34,39 @@
     "babel-preset-react": "^6.23.0",
     "babel-runtime": "^6.22.0",
     "css-loader": "0.26.1",
+    "enzyme": "^2.9.1",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.10.0",
     "html-webpack-plugin": "^2.26.0",
+    "jest": "^20.0.4",
+    "loglevel": "^1.4.1",
     "postcss-loader": "^1.2.2",
+    "react-addons-test-utils": "^15.6.0",
     "react-hot-loader": "^3.0.0-beta.6",
+    "react-test-renderer": "^15.6.1",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "^3.3.0",
     "webpack-cleanup-plugin": "^0.4.2",
     "webpack-dashboard": "^0.3.0",
     "webpack-dev-server": "^2.4.1"
+  },
+  "jest": {
+    "verbose": true,
+    "bail": true,
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "moduleNameMapper": {
+      "\\.(jpe?g|png|gif|eot|otf|webp|svg|ttf|woff2?|mp[34]|webm|wav|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|s[ac]ss|styl)$": "<rootDir>/__mocks__/styleMock.js",
+      "app": "<rootDir>/src/app.jsx"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ]
   }
 }
