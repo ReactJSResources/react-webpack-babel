@@ -100,8 +100,8 @@ npm run lint
 ```
 
 ### Notes on importing css styles
-* styles having /src/ in their absolute path are considered part of the application and exported as local css modules.
-* other styles are considered global styles used by many components and are included in the css bundle directly.
+* styles having /src/ in their absolute path considered part of the application and exported as local css modules.
+* other styles considered global styles used by components and included in the css bundle directly.
 
 ### Contribute
 Please contribute to the project if you know how to make it better, including this README :)
