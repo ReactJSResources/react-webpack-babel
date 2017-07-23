@@ -42,6 +42,20 @@ npm run dev
 
 Open the web browser to `http://localhost:8888/`
 
+### To test
+To run unit tests:
+
+```
+npm test
+```
+
+Tests come bundled with:
+
+* Jest
+* Enzyme
+* React Test Utils
+* React Test Renderer
+
 ### To build the production package
 
 ```
@@ -51,6 +65,7 @@ npm run build
 ### Nginx Config
 
 Here is an example Nginx config:
+
 ```
 server {
 	# ... root and other options
@@ -76,7 +91,7 @@ server {
 ```
 
 ### Eslint
-There is a .eslint.yaml config for eslint ready with React plugin.
+There is a `.eslint.yaml` config for eslint ready with React plugin.
 To use it, you need to install additional dependencies though:
 
 ```
