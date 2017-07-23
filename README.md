@@ -92,13 +92,8 @@ server {
 
 ### Eslint
 There is a `.eslint.yaml` config for eslint ready with React plugin.
-To use it, you need to install additional dependencies though:
 
-```
-npm install --save-dev eslint eslint-plugin-react
-```
-
-To do the actual linting, run:
+To run linting, run:
 
 ```
 npm run lint
