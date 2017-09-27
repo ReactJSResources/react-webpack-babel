@@ -31,6 +31,3 @@ node_modules
 
 # Ignore build files
 public
-
-# Ignore yarn files
-yarn.lock
