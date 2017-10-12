@@ -1,14 +1,36 @@
 import React from 'react';
 import '../styles/index.scss';
+import Header from './components/header';
+import ContactGrid from './components/contact-grid';
+import MockData from '../__mocks__/fileMock';
 
-export default class App extends React.Component {
+//Load fileMock data into contact-grid
+
+class App extends React.Component {
+  constructor() {
+   super();
+    this.state = { contacts: [], loading: true };
+  }
+
+  componentWillMount() {
+    this.loadContacts();
+  }
+
+  loadContacts(){
+    this.setState({
+      contacts: MockData.contacts,
+      loading: false
+    })
+  }
+
   render() {
     return (
       <div>
-        <h1>It Works!</h1>
-        <p>This React project just works including <span className="redBg">module</span> local styles.</p>
-        <p>Enjoy!</p>
+        <Header />
+        <ContactGrid contacts={this.state.contacts} />
       </div>
     )
   }
 }
+
+export default App;

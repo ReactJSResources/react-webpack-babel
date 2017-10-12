@@ -2,11 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import App from './app'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 ReactDOM.render(
-  <AppContainer>
-    <App/>
-  </AppContainer>,
+  <BrowserRouter>
+    <AppContainer>
+      <Route exact path="/" component={App} />
+    </AppContainer>
+  </BrowserRouter>,
   document.getElementById('app')
 );
 
