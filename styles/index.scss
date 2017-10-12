@@ -1,2 +1,11 @@
 @import 'main';
 @import 'common/button';
+
+.grid {
+  float:left;
+  width:50%;
+  height: 300px;
+  font-size:5em;
+  text-align: center;
+  color: magenta;
+}
