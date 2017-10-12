@@ -1,14 +1,22 @@
 module.exports = {
   contacts: [{
-    name: "joe"
+    name: "Jim",
+    photo: ":grinning:",
+    id: "1"
   },
   {
-    name: "jane"
+    name: "Jane",
+    photo: ":upside_down:",
+    id: "2"
   },
   {
-    name: "jim"
+    name: "Joe",
+    photo: ":alien:",
+    id: "3"
   },
   {
-    name: "jiminy"
+    name: "Jiminy",
+    photo: ":robot:",
+    id: "4"
   }]
 };

@@ -1,11 +1,50 @@
 @import 'main';
 @import 'common/button';
+body{
+  font-family: quicksand;
+  background-color: #123456;
+}
+.header {
+  width: 30%;
+  margin: 0 auto;
+  font-weight:bold;
+  text-align: center;
+  color: teal;
+  h1{
+    font-size: 6em;
+    margin: 0;
+  }
+  h3{
+    font-size: 2em;
+    margin-top: 0;
+  }
+}
 
 .grid {
   float:left;
-  width:50%;
+  width:100%;
+  height: 900px;
+}
+
+.contact-item {
+  float:left;
+  width:25%;
+  margin: 2% 12.5%;
   height: 300px;
-  font-size:5em;
+  font-size:2em;
+  font-weight: bold;
   text-align: center;
-  color: magenta;
+  color: teal;
+  .contact-name{
+    margin: 0 0 20px 0;
+  }
+}
+
+.emoji-container {
+  display: inline;
+  font-size: 5em;
+}
+
+img {
+  width: 200px;
 }

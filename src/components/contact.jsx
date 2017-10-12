@@ -1,14 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import EmojiOne from 'emojione';
+import { Link } from 'react-router-dom';
 
-const Contact = (props) => (
-  <div className='contact'>
-    <p>{props.name}</p>
-  </div>
-)
+class Contact extends React.Component {
+  render(){
+    const { name, photo, id } = this.props.details;
+    const emoji = EmojiOne.shortnameToImage(photo)
+    console.log(emoji);
+    return(
+      // TODO - add route for single contact
+      <Link to={`/contact/${id}`}>
+        <div className='contact-item'>
+            <p className='contact-name'>{name}</p>
+            <div className='emoji-container' dangerouslySetInnerHTML={{__html: emoji}}></div>
+        </div>
+      </Link>
+    )
+  }
+}
 
 Contact.propTypes = {
-  name: PropTypes.string.isRequired
+  details: PropTypes.object
 }
 
 export default Contact;
