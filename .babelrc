@@ -3,8 +3,15 @@
   "plugins": [
     "transform-runtime",
     "transform-decorators-legacy",
-    "transform-class-properties"
+    "transform-class-properties",
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "styles": "./styles"
+      }
+    }]
   ],
+  
   "env": {
     "test": {
       "plugins": [
