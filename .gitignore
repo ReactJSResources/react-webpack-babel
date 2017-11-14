@@ -31,5 +31,4 @@ node_modules
 
 # Ignore build files
 public
-.idea/react-webpack-babel.iml
-.idea/inspectionProfiles/profiles_settings.xml
+.idea
