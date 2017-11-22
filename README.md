@@ -1,11 +1,21 @@
-# react-webpack-babel
-Simple React Webpack Babel Starter Kit
+<p align="center">
+    <h3 align="center">Simple React Webpack Babel Starter Kit<br></h3>
+</p>
 
 Tired of complicated starters with 200MB of dependencies which are hard to understand and modify?
 
-Try this is a simple [React](https://facebook.github.io/react/), [Webpack](http://webpack.github.io/) and [Babel](https://babeljs.io/) application with nothing else in it.
+### What were using
 
-### What's in it?
+* React 16
+* Webpack 3
+* React Router 4
+* SASS
+* Babel Cli
+* Hot Module Reloading
+* Jest 21 
+* Enzyme 3 for testing
+
+### Features
 
 * Simple src/index.jsx and src/index.css (local module css).
 * Webpack configuration for development (with hot reloading) and production (with minification).

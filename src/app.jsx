@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigation from './components/Navigation';
+import 'normalize.css';
 import 'styles/index.scss';
 
 export default class App extends React.Component {
@@ -16,4 +17,3 @@ export default class App extends React.Component {
 		)
 	}
 }
-
