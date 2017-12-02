@@ -6,7 +6,7 @@ import app from 'app';
 configure({ adapter: new Adapter() });
 
 describe('app', () => {
-		it('renders without crashing', () => {
-				mount(<app />);
-		});
+  it('renders without crashing', () => {
+    mount(<app />);
+  });
 });
