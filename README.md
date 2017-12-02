@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/alicoding/react-webpack-babel/tree/master.svg?style=svg)](https://circleci.com/gh/alicoding/react-webpack-babel/tree/master)
+
 <p align="center">
     <h3 align="center">Simple React Webpack Babel Starter Kit<br></h3>
 </p>
