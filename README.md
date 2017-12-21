@@ -3,9 +3,9 @@
     <h3 align="center">Simple React Webpack Babel Starter Kit<br></h3>
 </p>
 
-[![CircleCI](https://circleci.com/gh/alicoding/react-webpack-babel/tree/master.svg?style=svg)](https://circleci.com/gh/alicoding/react-webpack-babel/tree/master)
+[![CircleCI](https://circleci.com/gh/ReactJSResources/react-webpack-babel/tree/master.svg?style=svg)](https://circleci.com/gh/ReactJSResources/react-webpack-babel/tree/master)
 
-[![Dependency Status](https://img.shields.io/david/alicoding/react-webpack-babel.svg)](https://david-dm.org/dylang/npm-check)
+[![Dependency Status](https://img.shields.io/david/ReactJSResources/react-webpack-babel.svg)](https://david-dm.org/dylang/npm-check)
 
 Tired of complicated starters with 200MB of dependencies which are hard to understand and modify?
 
@@ -34,7 +34,7 @@ Tired of complicated starters with 200MB of dependencies which are hard to under
 * Fork and clone the project:
 
 ```
-git clone https://github.com/alicoding/react-webpack-babel.git
+git clone https://github.com/ReactJSResources/react-webpack-babel.git
 ```
 
 * Then install the dependencies:
