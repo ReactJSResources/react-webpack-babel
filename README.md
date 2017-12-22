@@ -7,7 +7,7 @@
 
 [![Dependency Status](https://img.shields.io/david/ReactJSResources/react-webpack-babel.svg)](https://david-dm.org/dylang/npm-check)
 
-Tired of complicated starters with 200MB of dependencies which are hard to understand and modify?
+Tired of complicated starters with 200MB of dependencies which are hard to understand and modify? This is for you!
 
 ### What were using
 
@@ -75,6 +75,14 @@ Tests come bundled with:
 
 ```
 npm run build
+```
+
+### Running build locally
+
+If you are using Mac/Linux simply run the following command inside public directory:
+
+```
+python -m SimpleHTTPServer 8000
 ```
 
 ### Nginx Config
