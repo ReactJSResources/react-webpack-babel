@@ -12,11 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alicoding/react-webpack-babel"
+    "url": "https://github.com/ReactJSResources/react-webpack-babel"
   },
-  "author": "Ali Al Dallal",
+  "author": "ReactJSResources",
   "license": "MIT",
-  "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
+  "homepage": "https://github.com/ReactJSResources/react-webpack-babel#readme",
   "dependencies": {
     "node-sass": "^4.7.2",
     "normalize.css": "^7.0.0",
