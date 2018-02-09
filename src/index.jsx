@@ -1,18 +1,24 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import App from './app.jsx';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {AppContainer} from 'react-hot-loader'
+import Routes from './routes'
 
-render( <AppContainer><App/></AppContainer>, document.querySelector("#app"));
+ReactDOM.render(
+  <AppContainer>
+      <Routes />
+  </AppContainer>,
+  document.getElementById('app')
+);
 
-if (module && module.hot) {
-  module.hot.accept('./app.jsx', () => {
-    const App = require('./app.jsx').default;
-    render(
+// Hot Module Replacement API
+if (module.hot) {
+  module.hot.accept('./app', () => {
+    const NextApp = require('./app').default;
+    ReactDOM.render(
       <AppContainer>
-        <App/>
+        <NextApp/>
       </AppContainer>,
-      document.querySelector("#app")
+      document.getElementById('app')
     );
   });
 }

@@ -1,45 +1,79 @@
 {
   "name": "react-webpack-babel",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React Webpack Babel Starter Kit",
   "main": "''",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "webpack-dev-server --progress --profile --colors",
-    "lint": "eslint --ext js --ext jsx src || exit 0"
+    "lint": "eslint --ext js --ext jsx src || exit 0",
+    "dev": " webpack-dashboard -- webpack-dev-server",
+    "test": "export NODE_ENV=test && jest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alicoding/react-webpack-babel"
+    "url": "https://github.com/ReactJSResources/react-webpack-babel"
   },
-  "author": "Ali Al Dallal",
+  "author": "ReactJSResources",
   "license": "MIT",
-  "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
+  "homepage": "https://github.com/ReactJSResources/react-webpack-babel#readme",
   "dependencies": {
-    "node-sass": "^3.10.1",
-    "react": "15.4.1",
-    "react-dom": "15.4.1",
-    "sass-loader": "^4.0.2"
+    "node-sass": "^4.7.2",
+    "normalize.css": "^7.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "sass-loader": "^6.0.6"
   },
   "devDependencies": {
-    "babel-core": "6.17.0",
-    "babel-loader": "6.2.7",
-    "babel-plugin-transform-class-properties": "^6.16.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.0.4",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-module-resolver": "^3.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-es2015": "6.16.0",
-    "babel-preset-react": "6.16.0",
-    "babel-runtime": "^6.11.6",
-    "css-loader": "0.26.0",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "0.9.0",
-    "html-webpack-plugin": "^2.22.0",
-    "postcss-loader": "^1.0.0",
-    "react-hot-loader": "^3.0.0-beta.6",
-    "style-loader": "0.13.1",
-    "url-loader": "0.5.7",
-    "webpack": "1.13.2",
-    "webpack-cleanup-plugin": "^0.4.1",
-    "webpack-dev-server": "1.16.2"
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "css-loader": "^0.28.7",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.13.1",
+    "eslint-plugin-jest": "^21.5.0",
+    "eslint-plugin-react": "^7.5.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "html-webpack-plugin": "^2.30.1",
+    "jest": "^22.0.4",
+    "loglevel": "^1.6.0",
+    "postcss-loader": "^2.0.9",
+    "react-hot-loader": "^3.1.3",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "react-test-renderer": "^16.2.0",
+    "style-loader": "^0.19.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-cleanup-plugin": "^0.5.1",
+    "webpack-dashboard": "^1.0.2",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "jest": {
+    "verbose": true,
+    "bail": true,
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "moduleNameMapper": {
+      "\\.(jpe?g|png|gif|eot|otf|webp|svg|ttf|woff2?|mp[34]|webm|wav|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|s[ac]ss|styl)$": "<rootDir>/__mocks__/styleMock.js"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ]
   }
 }
