@@ -6,7 +6,6 @@ import {
 import App from './app';
 import About from './components/About';
 import Sample from './components/Sample';
-import 'styles/index.scss';
 
 const Routes = () => (
   <Router>
