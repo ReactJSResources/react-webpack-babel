@@ -1,10 +1,9 @@
 const path = require('path');
-const fs = require('fs');
 
 
 // Options passed to node-sass
 const sassIncludePaths = [
-  path.resolve(__dirname, 'src/styles'),
+  path.resolve(__dirname, 'styles'),
 ];
 
 
@@ -15,23 +14,6 @@ const sassResourcesPaths = [
 ];
 
 module.exports = [
-  // =======================
-  // = External SourceMaps =
-  // =======================
-  // Get source maps from external node packages
-  // This is useful when you are developing npm packages and
-  // you `npm link`-ed them in your project for test
-  {
-    test: /\.js?$/,
-    include: [
-      // path.resolve doesn't work: https://github.com/webpack-contrib/source-map-loader/issues/40
-      // fs.realpathSync('./node_modules/my-package'),
-      // fs.realpathSync('./node_modules/my-other-package')
-    ],
-    loader: "source-map-loader",
-    enforce: "pre"  // This means this is a Preloader (comes before)
-  },
-
   // =========
   // = Babel =
   // =========
@@ -42,7 +24,6 @@ module.exports = [
     include: path.resolve(__dirname, 'src'),
     loader: ["babel-loader"]
   },
-
   // =========
   // = Fonts =
   // =========
@@ -75,7 +56,6 @@ module.exports = [
       }
     ]
   },
-
   // ==========
   // = Images =
   // ==========
@@ -132,15 +112,9 @@ module.exports = [
       }
     ]
   },
-
   // ==========
   // = Styles =
   // ==========
-  // Loaders can be chained by passing multiple loaders, which will be applied from right to left (last to first configured):
-  //    - css-loader takes a CSS file and reads off all its dependencies
-  //    - style-loader will embed those styles directly into the markup (not when using dev-server)
-  // TODO: for prod ==> loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-
   // Global CSS (from node_modules)
   // ==============================
   {
@@ -155,8 +129,7 @@ module.exports = [
       }
     ]
   },
-
-  // Global sass (from app)
+  // Global SASS (from app)
   // ===============================
   // Do not modularize these imports
   // (leave them as global css styles)
@@ -194,11 +167,10 @@ module.exports = [
         loader: "sass-resources-loader",
         options: {
           resources: sassResourcesPaths
-        },
+        }
       }
     ]
   },
-
   // Local SASS css-modules
   // ======================
   {

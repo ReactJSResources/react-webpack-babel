@@ -13,9 +13,10 @@ const PORT = process.env.PORT || "8888";
 module.exports = {
   entry: [
     // POLYFILL: Set up an ES6-ish environment
-    // 'babel-polyfill', // Either the entire babel-polyfill
+    // Either the entire babel-polyfill
     // Or fine-tune es6 features needed (included into babel-polyfill)
     // Example:
+    // 'babel-polyfill',  // The entire babel-polyfill
     'core-js/fn/promise',
     'core-js/es6/object',
     'core-js/es6/array',
