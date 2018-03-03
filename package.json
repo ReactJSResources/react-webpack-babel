@@ -5,6 +5,7 @@
   "main": "''",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
+    "serve:build": "npm run build && node server.js",
     "start": "webpack-dev-server --progress --profile --colors",
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "dev": " webpack-dashboard -- webpack-dev-server",
@@ -41,6 +42,7 @@
     "eslint": "^4.13.1",
     "eslint-plugin-jest": "^21.5.0",
     "eslint-plugin-react": "^7.5.1",
+    "express": "^4.16.2",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
