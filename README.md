@@ -79,10 +79,8 @@ npm run build
 
 ### Running build locally
 
-If you are using Mac/Linux simply run the following command inside public directory:
-
 ```
-python -m SimpleHTTPServer 8000
+npm run serve:build
 ```
 
 ### Nginx Config
