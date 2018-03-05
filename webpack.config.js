@@ -1,22 +1,24 @@
 "use strict";
-var webpack = require('webpack');
-var path = require('path');
-var loaders = require('./webpack.loaders');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var DashboardPlugin = require('webpack-dashboard/plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const loadersConf = require('./webpack.loaders');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const HOST = process.env.HOST || "127.0.0.1";
 const PORT = process.env.PORT || "8888";
 
-loaders.push({
-  test: /\.scss$/,
-  loaders: ['style-loader', 'css-loader?importLoaders=1', 'sass-loader'],
-  exclude: ['node_modules']
-});
 
 module.exports = {
   entry: [
+    // POLYFILL: Set up an ES6-ish environment
+    // 'babel-polyfill',  // The entire babel-polyfill
+    // Or pick es6 features needed (included into babel-polyfill)
+    'core-js/fn/promise',
+    'core-js/es6/object',
+    'core-js/es6/array',
+
     'react-hot-loader/patch',
     './src/index.jsx', // your app's entry point
   ],
@@ -26,11 +28,18 @@ module.exports = {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
   },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
   module: {
-    loaders
+    rules: loadersConf
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    modules: [
+      path.join(__dirname, "src"),
+      path.join(__dirname, "node_modules"), // the old 'fallback' option (needed for npm link-ed packages)
+    ],
+    alias: {
+      "styles": path.resolve(__dirname, 'styles/'),
+    }
   },
   devServer: {
     contentBase: "./public",
