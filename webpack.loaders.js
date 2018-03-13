@@ -13,6 +13,7 @@ const sassResourcesPaths = [
   path.resolve(__dirname, 'styles/abstracts/_mixins.sass'),
 ];
 
+// noinspection WebpackConfigHighlighting
 module.exports = [
   // =========
   // = Babel =
@@ -22,7 +23,14 @@ module.exports = [
   {
     test: /\.jsx?$/,
     include: path.resolve(__dirname, 'src'),
-    loader: ["babel-loader"]
+    loader: "babel-loader",
+    options: {
+      // This is a feature of `babel-loader` for Webpack (not Babel itself).
+      // It enables caching results in ./node_modules/.cache/babel-loader/
+      // directory for faster rebuilds.
+      cacheDirectory: true,
+      plugins: ['react-hot-loader/babel'],
+    }
   },
   // =========
   // = Fonts =

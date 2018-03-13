@@ -3,22 +3,20 @@ import ReactDOM from 'react-dom'
 import {AppContainer} from 'react-hot-loader'
 import Routes from './routes'
 
-ReactDOM.render(
-  <AppContainer>
-      <Routes />
-  </AppContainer>,
-  document.getElementById('app')
-);
+const renderApp = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component/>
+    </AppContainer>,
+    document.getElementById('app')
+  );
+};
 
-// Hot Module Replacement API
+renderApp(Routes);
+
+// Webpack Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./app', () => {
-    const NextApp = require('./app').default;
-    ReactDOM.render(
-      <AppContainer>
-        <NextApp/>
-      </AppContainer>,
-      document.getElementById('app')
-    );
-  });
+  module.hot.accept('./routes', () => {
+    renderApp(require('./routes').default);
+  })
 }
