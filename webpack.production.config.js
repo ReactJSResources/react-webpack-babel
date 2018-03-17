@@ -7,14 +7,13 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 loaders.push({
   test: /\.scss$/,
-  loader: ExtractTextPlugin.extract({fallback: 'style-loader', use : 'css-loader?sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=expanded'}),
+  loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=expanded'}),
   exclude: ['node_modules']
 });
 
 module.exports = {
   entry: [
-    './src/index.jsx',
-    './styles/index.scss'
+    './src/index.jsx'
   ],
   output: {
     publicPath: './',
@@ -22,7 +21,10 @@ module.exports = {
     filename: '[chunkhash].js'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      "styles": path.resolve(__dirname, 'styles/'),
+    }
   },
   module: {
     loaders
