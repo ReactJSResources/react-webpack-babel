@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = () => (
   <div>
-    Not a single word
+    ssss
   </div>
 );
 
