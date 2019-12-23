@@ -21,8 +21,10 @@
   "dependencies": {
     "babel-polyfill": "6.26.0",
     "normalize.css": "^7.0.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "semantic-release": "^15.14.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
