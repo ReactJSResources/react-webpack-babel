@@ -4,14 +4,15 @@
   "description": "React Webpack Babel Starter Kit",
   "main": "''",
   "engines": {
-   "node": "10.12.0"
- },
+    "node": "10.12.0"
+  },
   "scripts": {
     "clean": "shx rm -rf build",
     "webpack": "webpack --config config/webpack.config.production.js",
     "watch:style": "node-sass --watch src/assets/styles/index.scss build/index.css",
     "sass": "node-sass src/styles/index.scss build/index.css",
     "build": "npm run clean && npm run sass && npm run webpack",
+    "heroku-postbuild": "webpack --config webpack.config.prod.js",
     "lint": "eslint src config",
     "dev": " webpack-dashboard -- webpack-dev-server --config config/webpack.config.dev.js",
     "test": "export NODE_ENV=test && jest"
