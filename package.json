@@ -3,6 +3,9 @@
   "version": "0.0.4",
   "description": "React Webpack Babel Starter Kit",
   "main": "''",
+  "engines": {
+   "node": "10.12.0"
+ },
   "scripts": {
     "clean": "shx rm -rf build",
     "webpack": "webpack --config config/webpack.config.production.js",
