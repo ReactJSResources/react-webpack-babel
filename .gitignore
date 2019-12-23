@@ -1,6 +1,7 @@
 # Logs
 logs
 *.log
+.DS_Store
 
 # Runtime data
 pids
@@ -15,6 +16,10 @@ coverage
 
 # Jest Clutter
 __snapshots__
+
+# IDE
+.idea
+.vscode
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -31,4 +36,3 @@ node_modules
 
 # Ignore build files
 public
-.idea
