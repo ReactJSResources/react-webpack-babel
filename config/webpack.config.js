@@ -18,7 +18,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../src/index.ejs')
+      template: path.resolve(__dirname, '../src/index.html')
     }),
     new CopyWebpackPlugin([
       { from: path.join(SRC_DIRECTORY, 'assets'), to: path.join(ROOT_DIRECTORY, 'build') }
@@ -27,18 +27,7 @@ const config = {
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.css$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].css'
-            }
-          },
-          'extract-loader',
-          'css-loader'
-        ]
-      },
+      { test: /\.(scss)$/,  use: ['style-loader', 'css-loader']},
       {
         test: /\.(png|svg|jpg|gif|pdf)$/,
         use: [

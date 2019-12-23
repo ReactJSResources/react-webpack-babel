@@ -2,7 +2,7 @@ import React from 'react';
 
 const Sample = () => (
   <div>
-    test
+    testssss
   </div>
 );
 
