@@ -1,5 +1,5 @@
 import React from 'react';
-import dog from '../images/dog.png';
+import dog from '../assets/images/dog.png';
 
 const About = () => (
   <div>

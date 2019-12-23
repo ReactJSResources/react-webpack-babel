@@ -1,12 +1,14 @@
 import React from 'react';
-import { configure, mount } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Routes from '../routes';
+import { App }  from '../app';
 
 configure({ adapter: new Adapter() });
 
+
 describe('app', () => {
-  it('renders without crashing', () => {
-    mount(<Routes />);
+  it('renders <App /> components', () => {
+    const component = shallow(<App />);
+    expect(component).toMatchSnapshot();
   });
 });
