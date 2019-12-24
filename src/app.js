@@ -3,9 +3,9 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import Navigation from './components/Navigation';
-import Home from './components/Home';
-import About from './components/About';
-import Sample from './components/Sample';
+import Home from './routes/Home';
+import About from './routes/About';
+import Sample from './routes/Sample';
 
 
 export const App = () => (
