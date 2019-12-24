@@ -12,7 +12,7 @@
     "watch:style": "node-sass --watch src/assets/styles/index.scss build/index.css",
     "sass": "node-sass src/styles/index.scss build/index.css",
     "build": "npm run clean && npm run sass && npm run webpack",
-    "heroku-postbuild": "webpack --config config/webpack.config.production.js",
+    "heroku-postbuild": "npm run  --config config/webpack.config.production.js",
     "lint": "eslint src config",
     "dev": " webpack-dashboard -- webpack-dev-server --config config/webpack.config.dev.js",
     "test": "export NODE_ENV=test && jest",
