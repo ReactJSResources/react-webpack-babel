@@ -42,9 +42,7 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
-  },
-  "devDependencies": {
+    "webpack-dev-server": "^3.10.1",
     "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.0",
