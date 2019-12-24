@@ -12,10 +12,11 @@
     "watch:style": "node-sass --watch src/assets/styles/index.scss build/index.css",
     "sass": "node-sass src/styles/index.scss build/index.css",
     "build": "npm run clean && npm run sass && npm run webpack",
-    "heroku-postbuild": "webpack --config webpack.config.prod.js",
+    "heroku-postbuild": "webpack --config config/webpack.config.production.js",
     "lint": "eslint src config",
     "dev": " webpack-dashboard -- webpack-dev-server --config config/webpack.config.dev.js",
-    "test": "export NODE_ENV=test && jest"
+    "test": "export NODE_ENV=test && jest",
+    "start": "webpack-dev-server --config config/webpack.config.production.js"
   },
   "repository": {
     "type": "git",
@@ -39,8 +40,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "semantic-release": "^15.14.0",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-cli": "^3.3.10"
   },
   "devDependencies": {
     "autoprefixer": "^9.7.3",
@@ -60,7 +60,8 @@
     "style-loader": "^1.1.1",
     "url-loader": "^3.0.0",
     "webpack": "^4.41.4",
-    "webpack-dashboard": "^3.2.0"
+    "webpack-dashboard": "^3.2.0",
+    "webpack-dev-server": "^3.10.1"
   },
   "jest": {
     "verbose": true,
