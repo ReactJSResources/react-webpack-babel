@@ -34,4 +34,6 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm test -- --coverage --updateSnapshot
+      - run: # run tests
+          name: test
+          command: npm test -- --coverage --updateSnapshot

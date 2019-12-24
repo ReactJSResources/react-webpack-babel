@@ -9,7 +9,6 @@
   "scripts": {
     "clean": "shx rm -rf build",
     "webpack": "webpack --config config/webpack.config.production.js",
-    "watch:style": "node-sass --watch src/assets/styles/index.scss build/index.css",
     "sass": "node-sass src/styles/index.scss build/index.css",
     "build": "npm run clean && npm run sass && npm run webpack",
     "lint": "eslint src config",
@@ -47,7 +46,6 @@
     "jest": "^24.9.0",
     "node-sass": "^4.13.0",
     "postcss-cli": "^6.1.3",
-    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
