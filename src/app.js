@@ -1,12 +1,11 @@
-import React, { Fragment } from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import React, { Fragment } from 'react'
+import { Router, Route, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 
-import Navigation from './components/Navigation';
-import Home from './routes/Home';
-import About from './routes/About';
-import Sample from './routes/Sample';
-
+import Navigation from './components/Navigation'
+import Home from './routes/Home'
+import About from './routes/About'
+import Sample from './routes/Sample'
 
 export const App = () => (
   <Fragment>
@@ -19,4 +18,4 @@ export const App = () => (
       </Switch>
     </Router>
   </Fragment>
-);
+)

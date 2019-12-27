@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 const Sample = () => {
+  const [counter, setCounter] = useState(0)
 
-   const [counter, setCounter] = useState(0);
-
-   return (
-     <div>
+  return (
+    <div>
       Count: {counter}
-       <button onClick={() => setCounter(counter + 1)}>Add</button>
-     </div>
-   );
+      <button onClick={() => setCounter(counter + 1)}>Add</button>
+    </div>
+  )
 }
-export default Sample;
+
+export default Sample

@@ -11,7 +11,7 @@
     "webpack": "webpack --config config/webpack.config.production.js",
     "sass": "node-sass src/styles/index.scss build/index.css",
     "build": "npm run clean && npm run sass && npm run webpack",
-    "lint": "eslint src",
+    "lint": "eslint src config",
     "dev": " webpack-dashboard -- webpack-dev-server --config config/webpack.config.dev.js",
     "test": "export NODE_ENV=test && jest",
     "start": "serve -s build"
@@ -38,11 +38,8 @@
     "css-loader": "^3.4.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "eslint": "^6.8.0",
     "eslint-import-resolver-babel-module": "^5.1.0",
-    "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jest": "^23.1.1",
-    "eslint-plugin-react": "^7.17.0",
     "file-loader": "^5.0.2",
     "history": "^4.10.1",
     "html-webpack-plugin": "^3.2.0",
@@ -79,5 +76,14 @@
     "moduleDirectories": [
       "node_modules"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-standard": "^4.0.1"
   }
 }
