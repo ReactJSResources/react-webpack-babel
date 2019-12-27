@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 
 const Home = () => (
   <Fragment>
@@ -6,6 +6,6 @@ const Home = () => (
     <p>Tired of complicated starters with 200MB of dependencies which are hard to understand and modify?
     This is for you!</p>
   </Fragment>
-);
+)
 
-export default Home;
+export default Home
