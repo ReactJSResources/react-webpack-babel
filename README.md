@@ -8,9 +8,9 @@
   This is a simple react application without redux, stylesheets or other set frameworks. It's only meant to get you started and the rest if up to you. Our goal for is to keep things simple and give you the freedom to select your own frameworks to add on top of this one.
 </p>
 
-<div class="center">
+[![CircleCI](https://circleci.com/gh/ReactJSResources/react-webpack-babel.svg?style=shield)](https://circleci.com/gh/ReactJSResources/react-webpack-babel)
+
   [![Dependency Status](https://img.shields.io/david/ReactJSResources/react-webpack-babel.svg)](https://david-dm.org/dylang/npm-check)
-</div>  
 
 ### Demo
 https://murmuring-fjord-36537.herokuapp.com/
