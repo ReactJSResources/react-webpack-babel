@@ -9,8 +9,6 @@
 </p>
 
 <div class="center">
-[![CircleCI](https://circleci.com/gh/ReactJSResources/react-webpack-babel.svg?style=shield)](https://circleci.com/gh/ReactJSResources/react-webpack-babel)
-
   [![Dependency Status](https://img.shields.io/david/ReactJSResources/react-webpack-babel.svg)](https://david-dm.org/dylang/npm-check)
 </div>  
 
