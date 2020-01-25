@@ -37,3 +37,11 @@ jobs:
       - run: # run tests
           name: test
           command: npm test -- --coverage --updateSnapshot
+
+  deploy:
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:b27ef45d-a66c-4355-8e2c-a6abb641e447@git.heroku.com/murmuring-fjord-36537.git master
