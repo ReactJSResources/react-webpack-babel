@@ -23,9 +23,13 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.join(SRC_DIRECTORY, 'index.html')
     }),
-    new CopyWebpackPlugin([
-      { from: path.join(SRC_DIRECTORY, 'assets'), to: path.join(ROOT_DIRECTORY, 'build') }
-    ])
+    new CopyWebpackPlugin(
+      {
+        patterns: [
+          { from: path.join(SRC_DIRECTORY, 'assets'), to: path.join(ROOT_DIRECTORY, 'build') }
+        ]
+      }
+    )
   ],
   module: {
     rules: [
