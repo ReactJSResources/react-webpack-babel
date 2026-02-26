@@ -43,7 +43,7 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "sass-loader": "^10.0.5",
-    "serve": "^11.3.2",
+    "serve": "^14.2.5",
     "shx": "^0.3.3",
     "style-loader": "^2.0.0",
     "webpack": "^5.4.0",
