@@ -4,12 +4,12 @@
   "description": "React Webpack Babel Starter Kit",
   "main": "''",
   "engines": {
-    "node": "10.12.0"
+    "node": ">=20"
   },
   "scripts": {
     "clean": "shx rm -rf build",
     "webpack": "webpack --config config/webpack.config.production.js",
-    "sass": "node-sass src/styles/index.scss build/index.css --output-style compressed",
+    "sass": "sass src/styles/index.scss build/index.css --style compressed",
     "build": "npm run clean && npm run sass && npm run webpack",
     "lint": "eslint src config",
     "dev": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
@@ -39,7 +39,6 @@
     "history": "^4.10.1",
     "html-webpack-plugin": "^4.5.0",
     "jest": "^24.9.0",
-    "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -49,7 +48,8 @@
     "style-loader": "^2.0.0",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "sass": "^1.86.0"
   },
   "jest": {
     "verbose": true,
@@ -58,7 +58,9 @@
     "coverageDirectory": "coverage",
     "moduleNameMapper": {
       "\\.(jpe?g|png|gif|eot|otf|webp|svg|ttf|woff2?|mp[34]|webm|wav|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less|s[ac]ss|styl)$": "<rootDir>/__mocks__/styleMock.js"
+      "\\.(css|less|s[ac]ss|styl)$": "<rootDir>/__mocks__/styleMock.js",
+      "^stream$": "stream-browserify",
+      "/^node:stream$/": "stream-browserify"
     },
     "moduleFileExtensions": [
       "js",
@@ -75,6 +77,11 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-standard": "^4.1.0"
+    "eslint-plugin-standard": "^4.1.0",
+    "stream-browserify": "^3.0.0"
+  },
+  "overrides": {
+    "node-sass": "npm:sass@^1.86.0",
+    "bcrypt": "npm:bcryptjs@^3.0.2"
   }
 }
