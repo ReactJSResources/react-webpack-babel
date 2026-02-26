@@ -34,7 +34,7 @@
     "copy-webpack-plugin": "^6.3.0",
     "css-loader": "^5.0.1",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5",
+    "enzyme-adapter-react-16": "^1.15.8",
     "file-loader": "^5.1.0",
     "history": "^4.10.1",
     "html-webpack-plugin": "^4.5.0",
@@ -60,7 +60,10 @@
       "\\.(jpe?g|png|gif|eot|otf|webp|svg|ttf|woff2?|mp[34]|webm|wav|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less|s[ac]ss|styl)$": "<rootDir>/__mocks__/styleMock.js",
       "^stream$": "stream-browserify",
-      "/^node:stream$/": "stream-browserify"
+      "^node:stream$": "stream-browserify",
+      "^node:assert$": "assert",
+      "^node:http$": "http",
+      "^node:net$": "net"
     },
     "moduleFileExtensions": [
       "js",
@@ -71,6 +74,7 @@
     ]
   },
   "devDependencies": {
+    "assert": "^1.5.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
@@ -82,6 +86,11 @@
   },
   "overrides": {
     "node-sass": "npm:sass@^1.86.0",
-    "bcrypt": "npm:bcryptjs@^3.0.2"
+    "bcrypt": "npm:bcryptjs@^3.0.2",
+    "grpc": "npm:@grpc/grpc-js@^1.12.0",
+    "node-canvas": "npm:@napi-rs/canvas@^0.1.65",
+    "leveldown": "npm:classic-level@^1.4.1",
+    "node-pre-gyp": "npm:@mapbox/node-pre-gyp@^1.0.11",
+    "imagemagick-native": "npm:sharp@^0.33.5"
   }
 }
