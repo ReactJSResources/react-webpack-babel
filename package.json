@@ -48,7 +48,7 @@
     "style-loader": "^2.0.0",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0",
+    "webpack-dev-server": "^5.2.3",
     "sass": "^1.86.0"
   },
   "jest": {
